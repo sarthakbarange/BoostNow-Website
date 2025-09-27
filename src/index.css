@@ -1,0 +1,45 @@
+
+html {
+  scroll-behavior: smooth;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes rotate10 {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.animate-slide {
+  animation: slide 20s linear infinite;
+}
+
+/* .flow-circular-regular {
+  font-family: "Flow Circular", serif;
+  font-weight: 400;
+  font-style: normal;
+} */
+

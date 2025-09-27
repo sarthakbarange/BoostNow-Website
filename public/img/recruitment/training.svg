@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+  <rect width="100%" height="100%" fill="white"/>
+  <g transform="translate(100, 100)">
+    <rect x="40" y="20" width="220" height="160" rx="5" stroke="black" stroke-width="3" fill="white"/>
+    <line x1="40" y1="60" x2="260" y2="60" stroke="black" stroke-width="3"/>
+    <rect x="60" y="80" width="180" height="20" rx="3" stroke="black" stroke-width="2" fill="white"/>
+    <rect x="60" y="110" width="180" height="20" rx="3" stroke="black" stroke-width="2" fill="white"/>
+    <rect x="60" y="140" width="180" height="20" rx="3" stroke="black" stroke-width="2" fill="white"/>
+    <line x1="70" y1="90" x2="230" y2="90" stroke="black" stroke-width="1"/>
+    <line x1="70" y1="120" x2="230" y2="120" stroke="black" stroke-width="1"/>
+    <line x1="70" y1="150" x2="230" y2="150" stroke="black" stroke-width="1"/>
+    <text x="100" y="45" font-family="Arial" font-size="14" fill="black">TRAINING & PLACEMENT</text>
+    <path d="M80 40 L90 30 L100 40 L90 50 Z" stroke="black" stroke-width="1" fill="black"/>
+    <path d="M220 40 L230 30 L240 40 L230 50 Z" stroke="black" stroke-width="1" fill="black"/>
+  </g>
+</svg>

@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import url('https://fonts.googleapis.com/css2?family=Flow+Circular&family=Hedvig+Letters+Serif:opsz@12..24&family=Roboto+Slab:wght@100..900&family=Roboto:wght@100;300;400;700;900&display=swap'); */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.flow-circular-regular {
+  font-family: serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #fc5c7d; /* Adjusted color */
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.home {
+  background: 
+    linear-gradient(to bottom, #01121a 10%, #65c8fb 100%)
+    /* radial-gradient(circle at center, 
+    #65c8fb 0%,
+    #4ba8d6 25%,
+    #2e86b3 50%,
+    #1c6386 75%,
+    #0d3b52 85%,
+    #01121a 100%
+    ); */
+ 
+}
+.headeranimation {
+  background: 
+    linear-gradient(to bottom, #00090f 10%, transparent 100%),
+    radial-gradient(circle at bottom, 
+    #65c8fb 0%,
+    /* #AAC4FF 0%, */
+    #4ba8d6 25%,
+    #2e86b3 50%,
+    #1c6386 75%,
+    #0d3b52 85%,
+    #01121a 100%
+    );
+ 
+}
+.footeranimation {
+  background: 
+    linear-gradient(to top, #00090f 10%, transparent 100%),
+    radial-gradient(circle at top, 
+    #65c8fb 0%,
+    #4ba8d6 25%,
+    #2e86b3 50%,
+    #1c6386 75%,
+    #0d3b52 85%,
+    #01121a 100%
+    );
+ 
+}
+/* Carousel.css */
+.element {
+  width: 200px;
+  height: 200px;
+  background-color: #3498db;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+
+}
+.clip-shape {
+  -webkit-clip-path: path("M 0,50 Q 50,0 100,50 Q 150,0 200,50  Q 150,100 200,150 Q 50,200 0,150 Z");
+  clip-path: path("M 0,50 Q 50,0 100,50 Q 150,0 200,50  Q 150,100 200,150 Q 50,200 0,150 Z");
+}
+
+/* Add this in your global.css or styles.css */
+.triangle-right {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 150px solid transparent;
+  border-left: 150px solid transparent;
+  border-bottom: 150px solid transparent;
+}
+
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-right: 100px solid red;
+  border-bottom: 50px solid transparent;
+}
+
+/* Add these styles to your CSS */
+.arrow-path {
+  stroke-dasharray: 184; /* Length of the arrow path */
+  stroke-dashoffset: 184; /* Initially hidden */
+  transition: stroke-dashoffset 1s ease-in-out;
+  opacity: 0.4; /* Initially set to slightly transparent */
+}
+
+.arrow-active {
+  stroke-dashoffset: 0; /* This will animate the stroke from left to right */
+  opacity: 1; /* Fully visible when active */
+}
+
+.gemini-logo {
+  width: 130px; /* Adjust size as needed */
+  height: 130px; /* Adjust size as needed */
+  background: linear-gradient(to right, #ff7b7b, #f86b6b); /* Example gradient */
+  position: relative;
+  clip-path: ellipse(50% 50% at 50% 50%); /* Curved elliptical shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* For rounded edges */
+}
+
+/* Add this to your existing App.css */
+.vanta-background {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+

@@ -1,0 +1,52 @@
+# Enable rewriting
+RewriteEngine On
+
+# If the request is not for a file, directory, or symbolic link
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+
+# Rewrite all other requests to the index.html
+RewriteRule ^(.*)$ index.html [QSA,L]
+
+# Set security headers
+<IfModule mod_headers.c>
+    # CORS headers
+    Header set Access-Control-Allow-Origin "*"
+    
+    # Cache control
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+    </FilesMatch>
+    
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Follow symbolic links
+Options +FollowSymLinks
+
+# Set default character set
+AddDefaultCharset UTF-8
+
+# Serve correct MIME types
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+    AddType image/svg+xml .svg
+    AddType application/font-woff .woff
+    AddType application/font-woff2 .woff2
+    AddType application/vnd.ms-fontobject .eot
+    AddType application/x-font-ttf .ttf
+</IfModule>
+
+# Enable gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript text/javascript application/json image/svg+xml
+</IfModule>
