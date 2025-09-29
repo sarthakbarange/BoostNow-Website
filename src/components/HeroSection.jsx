@@ -6,7 +6,15 @@ import privateSecureAnimation from "../assets/animation/private-secure.json"
 import unlimitedScale from "../assets/animation/unlimited-scale-1.json"
 import communications from "../assets/animation/forms-for-2-way-communications-1.json"
 import {Link} from "react-router-dom"
+import Contactpop_up from "./Contactpop_up"
+import { useState } from "react"
+
 const HeroSection = () => {
+  const [showPopup, setShowPopup] = useState(false);
+const Popup = (e) => {
+  e.preventDefault();
+  setShowPopup(true);
+}
   useEffect(() => {
     let AOS // Declare AOS here
     import("aos").then((aosModule) => {
@@ -66,20 +74,21 @@ const HeroSection = () => {
             Transform your digital presence with our tailored strategies to drive results.
           </p>
           <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-            <Link
-              to="/contact"
+            <button onClick={Popup}
               className="rounded-full px-5 sm:px-6 py-2 sm:py-3 bg-gray-800 text-white font-medium hover:bg-gray-600 transition text-sm sm:text-base"
             >
               Schedule a Call
-            </Link>
+            </button>
             <Link to="/about" className="text-gray-300 hover:underline text-sm sm:text-base">
               Learn More →
             </Link>
           </div>
+          
           {/* <div className="">
             <Companies />
           </div> */}
         </div>
+        <Contactpop_up showPopup={showPopup} onClose={() => setShowPopup(false)}/>
       </section>
     </div>
   )
