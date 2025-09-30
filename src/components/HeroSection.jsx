@@ -2,19 +2,20 @@
 
 import { useEffect } from "react"
 import Lottie from "lottie-react"
-import privateSecureAnimation from "../assets/animation/private-secure.json"
-import unlimitedScale from "../assets/animation/unlimited-scale-1.json"
-import communications from "../assets/animation/forms-for-2-way-communications-1.json"
+import futuristicSecure from "../assets/animation/exploration-3.json"
+import aiOptimization from "../assets/animation/ai-optimization.json"
+import generativeAI from "../assets/animation/generativeai.json"
+import systemDesignAnim from "../assets/animation/unlimitedScale.json"
 import {Link} from "react-router-dom"
 import Contactpop_up from "./Contactpop_up"
 import { useState } from "react"
 
 const HeroSection = () => {
   const [showPopup, setShowPopup] = useState(false);
-const Popup = (e) => {
-  e.preventDefault();
-  setShowPopup(true);
-}
+  const Popup = (e) => {
+    e.preventDefault();
+    setShowPopup(true);
+  }
   useEffect(() => {
     let AOS // Declare AOS here
     import("aos").then((aosModule) => {
@@ -41,7 +42,7 @@ const Popup = (e) => {
   return (
     <div>
       <section
-        className="z-10 bg-[url('/logo2.png')]  bg-center bg-contain   bg-no-repeat md:min-h-screen h-[80vh] md:h-[100vh] flex justify-center items-center relative overflow-hidden px-4 sm:px-8"
+        className="z-10 bg-[url('/logo2.png')] bg-center bg-contain bg-no-repeat md:min-h-screen h-[100vh] md:h-[100vh] flex justify-center items-center relative overflow-hidden px-4 sm:px-8"
         data-aos="zoom-in"
         data-aos-duration="1000"
       >
@@ -49,22 +50,38 @@ const Popup = (e) => {
         <div className="absolute inset-0 bg-black/50"></div>
         {/* <div className="absolute inset-0 "></div> */}
 
-        {/* GIF on hero section play button */}
-        <div className="sm:w-20 sm:h-20 absolute md:block md:top-[25%] top-[10%] md:left-[10%] left-[2%] z-10">
-          <img src="/animation/fully_4_1.gif" alt="Cool GIF" className="sm:w-32 sm:h-32 w-16 h-16" />
+        {/* Top-left system design (web/ERP) */}
+        <div className="sm:w-36 sm:h-36 w-20 h-20 absolute md:block md:top-[25%] top-[10%] md:left-[10%] left-[2%] z-10">
+          <div className="absolute -inset-8 bg-gradient-to-tr from-cyan-400/40 via-sky-500/30 to-indigo-500/40 blur-2xl rounded-full animate-pulse"></div>
+          <div className="relative rounded-2xl p-2 backdrop-blur-sm bg-white/5 ring-1 ring-white/10 shadow-[0_0_25px_rgba(59,130,246,0.25)]">
+            <Lottie animationData={systemDesignAnim} loop autoplay style={{ width: '100%', height: '100%' }} rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }} />
+          </div>
         </div>
-        {/* GIF on hero section eat play code repeat */}
-        <div className="sm:w-28 sm:h-28 w-12 h-12 ml-10 absolute md:block md:top-[25%] md:right-[13%] top-[12%] right-[2%] z-10">
-          <Lottie animationData={unlimitedScale} />
+
+        {/* Top-right futuristic AI optimization */}
+        <div className="sm:w-36 sm:h-36 w-20 h-20 ml-10 absolute md:block md:top-[25%] md:right-[13%] top-[12%] right-[2%] z-10">
+          <div className="absolute -inset-8 bg-gradient-to-b from-cyan-400/30 to-blue-600/30 blur-2xl rounded-full"></div>
+          <div className="relative rounded-2xl p-2 backdrop-blur-sm bg-white/5 ring-1 ring-white/10 shadow-[0_0_25px_rgba(56,189,248,0.25)]">
+            <Lottie animationData={aiOptimization} loop autoplay style={{ width: '100%', height: '100%' }} rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }} />
+          </div>
         </div>
-        {/* GIF on hero section privateSecureAnimation */}
-        <div className="w-12 h-12 sm:h-20 sm:w-20 mb-28 sm:mb-0 absolute bottom-[0%] left-[5%] md:bottom-[10%] md:left-[8%] z-10">
-          <Lottie animationData={privateSecureAnimation} />
+
+        {/* Bottom-left secure exploration graphic */}
+        <div className="w-20 h-20 sm:h-28 sm:w-28 mb-28 sm:mb-0 absolute bottom-[0%] left-[5%] md:bottom-[10%] md:left-[8%] z-10">
+          <div className="absolute -inset-10 bg-gradient-to-tr from-purple-500/30 via-pink-500/20 to-rose-500/30 blur-3xl rounded-full"></div>
+          <div className="relative rounded-2xl p-2 backdrop-blur-sm bg-white/5 ring-1 ring-white/10 shadow-[0_0_25px_rgba(168,85,247,0.25)]">
+            <Lottie animationData={futuristicSecure} loop autoplay style={{ width: '100%', height: '100%' }} rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }} />
+          </div>
         </div>
-        {/* GIF on communications hero section */}
-        <div className="md:w-28 md:h-28 w-16 h-16 mb-24 sm:mb-0 absolute md:block md:bottom-[12%] bottom-[0%] md:right-[5%] right-[8%] z-10">
-          <Lottie animationData={communications} />
+
+        {/* Bottom-right generative AI */}
+        <div className="md:w-36 md:h-36 w-24 h-24 mb-24 sm:mb-0 absolute md:block md:bottom-[12%] bottom-[0%] md:right-[5%] right-[8%] z-10">
+          <div className="absolute -inset-10 bg-gradient-to-tl from-emerald-400/30 to-teal-500/30 blur-3xl rounded-full"></div>
+          <div className="relative rounded-2xl p-2 backdrop-blur-sm bg-white/5 ring-1 ring-white/10 shadow-[0_0_25px_rgba(16,185,129,0.25)]">
+            <Lottie animationData={generativeAI} loop autoplay style={{ width: '100%', height: '100%' }} rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }} />
+          </div>
         </div>
+
         {/* Content Layer */}
         <div className="text-center w-full text-white relative md:mt-32 z-10">
           <h1 className="text-3xl sm:text-5xl font-bold" data-aos="fade-down">
@@ -83,12 +100,9 @@ const Popup = (e) => {
               Learn More →
             </Link>
           </div>
-          
-          {/* <div className="">
-            <Companies />
-          </div> */}
         </div>
-        <Contactpop_up showPopup={showPopup} onClose={() => setShowPopup(false)}/>
+
+        <Contactpop_up showPopup={showPopup} onClose={() => setShowPopup(false)} />
       </section>
     </div>
   )
