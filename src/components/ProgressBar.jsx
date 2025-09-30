@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Autoplay, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
-import "aos/dist/aos.css";
-import AOS from "aos";
 
 // Importing animation GIFs as assets
 import animation1 from "../assets/gif/acquisition-1.gif";
@@ -16,13 +14,6 @@ import animation5 from "../assets/gif/loyalty-1.gif";
 
 const ProgressBar = () => {
   const [activeSlide, setActiveSlide] = useState(0);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
 
   const slides = [
     {

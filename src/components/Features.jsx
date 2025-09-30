@@ -1,5 +1,6 @@
 // import Companies from "./Companies";
 import Lottie from "lottie-react";
+import { useInView } from "../hooks/useInView";
 // import privateSecureAnimation from '../assets/animation/Animation - 1737719513141.json'; // Update path as needed
 import privateSecureAnimation from "../assets/animation/private-secure.json"; // Update path as needed
 import cta from "../assets/animation/cta-2.json"; // Update path as needed
@@ -15,6 +16,8 @@ import generativeai from "../assets/animation/generativeai.json"; // Update path
 import communications from "../assets/animation/forms-for-2-way-communications-1.json"; // Update path as needed
 
 const Features = () => {
+  const [featuresRef, isFeaturesVisible] = useInView({ threshold: 0.05 });
+  
   const logos = [
     // "/logo.png"
     "https://www.blings.io/wp-content/uploads/2024/07/logo-2.png",
@@ -26,7 +29,7 @@ const Features = () => {
   ];
 
   return (
-    <div className="bg-transparent z-10 mx-4 relative mb-10 text-gray-300 sm:p-6">
+    <div ref={featuresRef} className="bg-transparent z-10 mx-4 relative mb-10 text-gray-300 sm:p-6">
       <div className="flex md:gap-5 gap-2 flex-col sm:mx-20">
         <div className="clip-shape "></div>
         {/* Features 1 Row */}
@@ -137,11 +140,14 @@ const Features = () => {
               Unlimited Scale
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={unlimitedScale}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={unlimitedScale}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
           <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center sm:w-[24vw] border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
@@ -149,11 +155,14 @@ const Features = () => {
               Private and Secure
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={privateSecureAnimation}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={privateSecureAnimation}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
           <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
@@ -161,11 +170,14 @@ const Features = () => {
               Countdown
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={countdown}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={countdown}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
           <div className="flex md:hidden  flex-col  hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center  p-2 sm:p-4 rounded-2xl bg-transparent transition max-[639px]:w-[27%]">
@@ -185,11 +197,14 @@ const Features = () => {
               Dynamic Pricing
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={dynamicPricing}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={dynamicPricing}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -200,11 +215,14 @@ const Features = () => {
               Personalization
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={personalization}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={personalization}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
           <div className="hidden md:block relative sm:px-4 sm:w-[66%] mx-2 justify-center items-center">
@@ -272,11 +290,14 @@ const Features = () => {
               Exploration
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={exploration}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={exploration}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
           <div className="flex flex-col sm:w-[9.7vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
@@ -284,11 +305,14 @@ const Features = () => {
               Dynamic Greeting
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={dynamicGreeting}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={dynamicGreeting}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -299,11 +323,14 @@ const Features = () => {
               AI Optimization
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={aiOptimization}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={aiOptimization}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
           <div className="flex md:hidden flex-col sm:w-[10vw]  hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center  p-2 sm:p-4 rounded-2xl bg-transparent transition max-[639px]:w-[25%]">
@@ -323,11 +350,14 @@ const Features = () => {
               CTA
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={cta}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={cta}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
           <div className="flex flex-col sm:w-[25vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
@@ -335,11 +365,14 @@ const Features = () => {
               Forms For 2-Way Communications
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={communications}
-                style={{ width: 60, height: 60 }}
-                className="sm:w-[100px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={communications}
+                  style={{ width: 60, height: 60 }}
+                  className="sm:w-[100px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
           <div className="flex flex-col sm:w-[24vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
@@ -347,11 +380,14 @@ const Features = () => {
               Adobe After Effects
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={after}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={after}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
           <div className="flex flex-col sm:w-[24vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
@@ -359,11 +395,14 @@ const Features = () => {
               Generative AI Creation
             </h3>
             <div className="flex justify-end">
-              <Lottie
-                animationData={generativeai}
-                style={{ width: 80, height: 60 }}
-                className="sm:w-[120px] sm:h-[100px]"
-              />
+              {isFeaturesVisible && (
+                <Lottie
+                  animationData={generativeai}
+                  style={{ width: 80, height: 60 }}
+                  className="sm:w-[120px] sm:h-[100px]"
+                  loop={true}
+                />
+              )}
             </div>
           </div>
         </div>

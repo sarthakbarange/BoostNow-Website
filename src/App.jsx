@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import "aos/dist/aos.css"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import Home from "./pages/Home"
@@ -25,6 +26,22 @@ const App = () => {
   const vantaRef = useRef(null)
   const [vantaEffect, setVantaEffect] = useState(null)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  // Centralized AOS initialization
+  useEffect(() => {
+    let AOS
+    ;(async () => {
+      const mod = await import("aos")
+      AOS = mod.default || mod
+      AOS.init({
+        duration: 700,
+        easing: "ease-out",
+        once: true,
+        offset: 80,
+        disableMutationObserver: true,
+      })
+    })()
+  }, [])
 
   useEffect(() => {
     // Handle window resize without recreating the effect

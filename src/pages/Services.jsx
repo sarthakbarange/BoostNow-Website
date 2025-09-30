@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Hero from '../components/vinit/Hero/ServicesHero'
 // import BrandsLogo from '../components/vinit/BrandsLogo/BrandsLogo'
 // import ServiceNew from '../components/vinit/Services/Services'
 // import BlogsComp from '../components/vinit/Blogs/BlogsComp'
 // import TestimonialNew from '../components/vinit/Testimonial/Testimonial'
-import AOS from "aos";
-import "aos/dist/aos.css";
 // import ITTraining from './ITTraining'
 // import ITTraning from '../components/ITTraning'
 import MainServices from '../components/mainServices'
@@ -13,15 +11,6 @@ import MainServices from '../components/mainServices'
 import GetStartedNow from '../components/GetStartedNow'
 import { Helmet } from "react-helmet";
 const Services = () => {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in",
-      delay: 100,
-    });
-    AOS.refresh();
-  }, []);
   return (
     <><Helmet>
     <title>Services | BoostNow</title>
