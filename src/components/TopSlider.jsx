@@ -141,9 +141,12 @@ function TopSlider() {
       <div className="flex justify-center items-center mt-6">
         <button
           onClick={() => swiperRef.current.swiper.slidePrev()}
-          className="text-[#38b6ff] hover:text-white px-2 py-2 rounded-full transition-transform transform hover:scale-110"
+          className="text-[#38b6ff] hover:text-white p-2 rounded-full transition-all duration-300 transform hover:scale-110 hover:bg-white/10"
+          aria-label="Previous slide"
         >
-          ◀
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
         </button>
 
         <div className="text-center text-lg text-white mx-4">
@@ -153,9 +156,12 @@ function TopSlider() {
 
         <button
           onClick={() => swiperRef.current.swiper.slideNext()}
-          className="text-[#38b6ff] hover:text-white px-2 py-2 rounded-full transition-transform transform hover:scale-110"
+          className="text-[#38b6ff] hover:text-white p-2 rounded-full transition-all duration-300 transform hover:scale-110 hover:bg-white/10"
+          aria-label="Next slide"
         >
-          ▶
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
 
