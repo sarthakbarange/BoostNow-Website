@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import Lottie from "lottie-react"
 import futuristicSecure from "../assets/animation/exploration-3.json"
 import aiOptimization from "../assets/animation/ai-optimization.json"
@@ -10,14 +10,28 @@ import {Link} from "react-router-dom"
 import Contactpop_up from "./Contactpop_up"
 import { useState } from "react"
 
+// Dynamic import for TubesCursor to avoid SSR issues
+const loadTubesCursor = async () => {
+  if (typeof window !== 'undefined') {
+    const module = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js')
+    return module.default
+  }
+  return null
+}
+
 const HeroSection = () => {
   const [showPopup, setShowPopup] = useState(false);
   const Popup = (e) => {
     e.preventDefault();
     setShowPopup(true);
   }
+  const canvasRef = useRef(null)
+
   useEffect(() => {
     let AOS // Declare AOS here
+    let app = null
+
+    // Initialize AOS
     import("aos").then((aosModule) => {
       AOS = aosModule
       AOS.init({
@@ -32,19 +46,66 @@ const HeroSection = () => {
       })
     })
 
+    // Initialize TubesCursor
+    const initTubesCursor = async () => {
+      if (canvasRef.current) {
+        try {
+          const TubesCursor = await loadTubesCursor()
+          if (TubesCursor) {
+            app = TubesCursor(canvasRef.current, {
+              tubes: {
+                colors: ["#f967fb", "#53bc28", "#6958d5"],
+                lights: {
+                  intensity: 200,
+                  colors: ["#83f36e", "#fe8a2e", "#ff008a", "#60aed5"]
+                }
+              }
+            })
+          }
+        } catch (error) {
+          console.error("Error initializing TubesCursor:", error)
+        }
+      }
+    }
+
+    initTubesCursor()
+
     return () => {
+      // Cleanup
+      if (app && typeof app.destroy === 'function') {
+        app.destroy()
+      }
       window.removeEventListener("scroll", () => {
-        AOS.refresh()
+        if (AOS) AOS.refresh()
       })
     }
   }, [])
 
   return (
-    <div>
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Tubes Cursor Canvas */}
+      <canvas 
+        ref={canvasRef}
+        className="fixed top-0 left-0 w-full h-full z-0"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+      
       <section
         className="z-10 bg-[url('/logo2.png')] bg-center bg-contain bg-no-repeat md:min-h-screen h-[100vh] md:h-[100vh] flex justify-center items-center relative overflow-hidden px-4 sm:px-8"
         data-aos="zoom-in"
         data-aos-duration="1000"
+        style={{
+          position: 'relative',
+          zIndex: 1
+        }}
       >
         {/* Add a semi-transparent overlay to ensure text is readable */}
         <div className="absolute inset-0 bg-black/50"></div>

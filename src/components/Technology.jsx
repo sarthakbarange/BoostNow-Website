@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "../components/ui/Card";
-import { FaReact, FaNodeJs, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaWordpress } from "react-icons/fa";
 import { SiTypescript, SiTailwindcss, SiMongodb, SiNextdotjs } from "react-icons/si";
 import { FaPython, FaRobot } from "react-icons/fa";
 import { SiTensorflow, SiKubernetes, SiDocker, SiOpenai } from "react-icons/si";
@@ -22,7 +22,7 @@ const technologies = [
   { name: "Kubernetes", icon: <SiKubernetes className="text-blue-600 text-4xl" /> },
   { name: "Docker", icon: <SiDocker className="text-cyan-500 text-4xl" /> },
   { name: "OpenAI", icon: <SiOpenai className="text-black text-4xl" /> },
-  { name: "WordPress", icon: <FaGithub className="text-black text-4xl" /> }, // Placeholder for WordPress
+  { name: "WordPress", icon: <FaWordpress className="text-blue-700 text-4xl" /> },
 ];
 
 const Technologies = () => {
