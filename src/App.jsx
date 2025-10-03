@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Navbar from "./components/Navbar"
@@ -11,10 +11,7 @@ import Services from "./pages/Services"
 import Contact from "./pages/Contact"
 import Careers from "./pages/Careers"
 import FAQ from "./pages/FAQ"
-// import ITTraining from "./pages/ITTraining";
 import Traning from "./pages/Training"
-import * as THREE from "three"
-import WAVES from "vanta/dist/vanta.waves.min"
 import Solution from "./pages/ITServices"
 import Startups from "./pages/ITServices/Startups"
 import SmallBusiness from "./pages/ITServices/SmallBusinesses"
@@ -23,53 +20,6 @@ import ProjectT from "./components/Testimonial/ProjectT/ProjectT"
 
 const App = () => {
   const vantaRef = useRef(null)
-  const [vantaEffect, setVantaEffect] = useState(null)
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-  useEffect(() => {
-    // Handle window resize without recreating the effect
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
-
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  useEffect(() => {
-    if (!vantaEffect) {
-      // Initial creation of the effect
-      setVantaEffect(
-        WAVES({
-          el: vantaRef.current,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          waveSpeed: 0.35, // Reduced for smoother animation
-          waveHeight: 15.0, // Adjusted for smoother waves
-          color: windowWidth < 768 ? 0x002b7f : 0x000,
-          shininess: 30.0, // Reduced for smoother appearance
-          zoom: windowWidth < 768 ? 0.7 : 0.8,
-          THREE,
-        }),
-      )
-    } else {
-      // Update only the necessary parameters when window width changes
-      vantaEffect.setOptions({
-        color: windowWidth < 768 ? 0x002b7f : 0x000,
-        zoom: windowWidth < 768 ? 0.7 : 0.8,
-      })
-    }
-
-    // Cleanup function
-    return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
-  }, [vantaEffect, windowWidth])
 
   return (
     <>
@@ -77,12 +27,8 @@ const App = () => {
         <Navbar />
         <div
           ref={vantaRef}
-          className="vanta-background"
-          style={{
-            minHeight: "100vh",
-            overflow: "hidden",
-            transition: "background-color 0.5s ease-in-out",
-          }}
+          className="bg-black"
+          style={{ minHeight: "100vh", overflow: "hidden" }}
         >
         {/* <div className="bg-black"> */}          <Routes>
             <Route path="/" element={<Home />} />
@@ -92,10 +38,9 @@ const App = () => {
             <Route path="/careers" element={<Careers />} />
             <Route path="/project" element={<ProjectT />} />
             <Route path="/faq" element={<FAQ />} />
-            {/* <Route path="/it" element={<ITTraining />} /> */}
             <Route path="/services/itservices" element={<Solution />} />
-            <Route path="/services/training" element={<Traning />} />            <Route path="/services/itservices/startups" element={<Startups />} />
-            {/* <Route path="/services/startups" element={<Startups />} /> */}
+            <Route path="/services/training" element={<Traning />} />
+            <Route path="/services/itservices/startups" element={<Startups />} />
             <Route path="/services/itservices/smallbusiness" element={<SmallBusiness />} />
             <Route path="/itrecruitment" element={<ITRecruitmentServices />} />
             <Route path="/itservices" element={<Solution />} />

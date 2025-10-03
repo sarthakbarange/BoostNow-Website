@@ -1,10 +1,12 @@
-import { useRef, useState } from "react";
+import { useRef, useState , useEffect} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
+
 
 import slide_Video_1 from "../assets/website/SliderVideo/IT solutions.mp4";
 import slide_Video_2 from "../assets/website/SliderVideo/IT Training.mp4";
