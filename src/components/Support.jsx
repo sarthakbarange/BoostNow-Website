@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 // import call from '../assets/gif/contact.gif';
 import faq from '../assets/gif/faq.gif';
 // import support from '../assets/gif/support.gif';
@@ -35,6 +36,20 @@ export default function Support({ id }) {
     }, 100); // Delay animation for better effect
     return () => clearTimeout(timer);
   }, []);
+
+  // Prevent page scrolling when popup is open
+  useEffect(() => {
+    if (showPopup) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup function to restore scrolling when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showPopup]);
 
 
   const handleSubmit = async (e) => {
@@ -149,29 +164,226 @@ export default function Support({ id }) {
 
       {/* Popup Form */}
       {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-2xl shadow-lg w-96">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Book an Appointment</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input type="text" name="firstName" placeholder="Your First Name" className="w-full p-2 border rounded" onChange={handleInputChange} required />
-              <input type="text" name="lastName" placeholder="Your Last Name" className="w-full p-2 border rounded" onChange={handleInputChange} required />
-              <input type="text" name="phoneNumber" placeholder="Phone Number" className="w-full p-2 border rounded" onChange={handleInputChange} required />
-              <input type="email" name="workEmail" placeholder="Email" className="w-full p-2 border rounded" onChange={handleInputChange} required />
-              <textarea name="message" placeholder="Your Message" className="w-full p-2 border rounded" onChange={handleInputChange} required></textarea>
-              <select name="service" className="w-full p-2 text-black border rounded" onChange={handleInputChange} required>
-                <option value="" className=' hidden'>Select a Service</option>
-                <option value="IT Services  " className=' selected text-black'>IT Services</option>
-                <option value="IT Training" className='text-black'>IT Training</option>
-                <option value="ERP" className='text-black'>ERP</option>
-                <option value="Other" className='text-black'>Other</option>
-              </select>
-              {/* <input type="date" name="date" className="w-full p-2 border rounded" onChange={handleInputChange} required /> */}
-              <input type="time" name="time" className="w-full text-black p-2 border rounded" onChange={handleInputChange} required />
-              <div className="flex justify-between">
-                <button type="button" className="bg-gray-400 text-black px-4 py-2 rounded" onClick={() => setShowPopup(false)}>Cancel</button>
-                <button type="submit" className="bg-blue-600 text-black px-4 py-2 rounded">Submit</button>
+     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-start justify-center z-50 p-4 pt-[150px] md:items-start md:pt-[100px] overflow-y-auto md:overflow-hidden">
+          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto relative my-4 md:my-0">
+            {/* Main form container with glass morphism effect */}
+            <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] md:max-h-[90vh]">
+              {/* Header section with gradient background */}
+              <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-2 sm:p-3 text-center border-b border-white/10 flex-shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10">
+                    <DotLottieReact
+                      src="https://lottie.host/eb1810d4-9f06-4c4d-9b01-e4ab15735e7b/YkANIylCA9.lottie"
+                      loop
+                      autoplay
+                    />
+                  </div>
+                </div>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent mb-1">
+                  Book an Appointment
+                </h2>
+                <p className="text-blue-200/80 text-xs hidden sm:block">Schedule a meeting with our experts to discuss your requirements.</p>
               </div>
-            </form>
+
+              {/* Form section */}
+              <div className="p-5 sm:p-7 overflow-y-auto md:overflow-hidden flex-1">
+                <form className="space-y-3 w-full" onSubmit={handleSubmit}>
+                  {/* Personal Information Section */}
+                  <div className="space-y-2">
+                    <h3 className="text-xs sm:text-sm font-semibold text-blue-200 flex items-center gap-2">
+                      <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                      Personal Information
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                      <div className="group">
+                        <label htmlFor="firstName" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                          First Name 
+                        </label>
+                        <div className="relative">
+                          <input
+                            id="firstName"
+                            name="firstName"
+                            type="text"
+                            placeholder="Enter first name"
+                            value={formData.firstName}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                          />
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </div>
+                      <div className="group">
+                        <label htmlFor="lastName" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                          Last Name 
+                        </label>
+                        <div className="relative">
+                          <input
+                            id="lastName"
+                            name="lastName"
+                            type="text"
+                            placeholder="Enter last name"
+                            value={formData.lastName}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                          />
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Contact Information Section */}
+                  <div className="space-y-2">
+                    <h3 className="text-xs sm:text-sm font-semibold text-blue-200 flex items-center gap-2">
+                      <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                      Contact Information
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                      <div className="group">
+                        <label htmlFor="phoneNumber" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                          Phone Number 
+                        </label>
+                        <div className="relative">
+                          <input
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            type="tel"
+                            placeholder="Your phone number"
+                            value={formData.phoneNumber}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                          />
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </div>
+                      <div className="group">
+                        <label htmlFor="workEmail" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                          Work Email 
+                        </label>
+                        <div className="relative">
+                          <input
+                            id="workEmail"
+                            name="workEmail"
+                            type="email"
+                            placeholder="your@company.com"
+                            value={formData.workEmail}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                          />
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Appointment Details Section */}
+                  <div className="space-y-2">
+                    <h3 className="text-xs sm:text-sm font-semibold text-blue-200 flex items-center gap-2">
+                      <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                      Appointment Details
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                      <div className="group">
+                        <label htmlFor="service" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                          Service Type 
+                        </label>
+                        <div className="relative">
+                          <select
+                            id="service"
+                            name="service"
+                            value={formData.service}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                          >
+                            <option value="" className="bg-gray-800 text-white">Select a Service</option>
+                            <option value="IT Services" className="bg-gray-800 text-white">IT Services</option>
+                            <option value="IT Training" className="bg-gray-800 text-white">IT Training</option>
+                            <option value="ERP" className="bg-gray-800 text-white">ERP</option>
+                            <option value="Other" className="bg-gray-800 text-white">Other</option>
+                          </select>
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </div>
+                      <div className="group">
+                        <label htmlFor="time" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                          Preferred Time 
+                        </label>
+                        <div className="relative">
+                          <input
+                            id="time"
+                            name="time"
+                            type="time"
+                            value={formData.time}
+                            onChange={handleInputChange}
+                            required
+                            className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                          />
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Message Section */}
+                  <div className="space-y-2">
+                    {/* <h3 className="text-xs sm:text-sm font-semibold text-blue-200 flex items-center gap-2">
+                      <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                      Your Message
+                    </h3> */}
+                    <div className="group">
+                      <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                        Tell us about your requirements 
+                      </label>
+                      <div className="relative">
+                        <textarea
+                          id="message"
+                          name="message"
+                          placeholder="Describe your requirements, goals, or any questions you have..."
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          rows="1"
+                          required
+                          className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 resize-none shadow-inner"
+                        />
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Submit Buttons */}
+                  <div className="pt-2 flex gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setShowPopup(false)}
+                      className="flex-1 bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400 text-white py-2.5 rounded-lg text-sm font-bold hover:from-gray-700 hover:via-gray-600 hover:to-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-300/50 transform hover:scale-[1.02] transition-all duration-300 shadow-xl"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      className="group relative flex-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white py-2.5 rounded-lg text-sm font-bold hover:from-blue-700 hover:via-blue-600 hover:to-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-300/50 transform hover:scale-[1.02] transition-all duration-300 shadow-xl overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                      <span className="relative flex items-center justify-center gap-2">
+                        Book Appointment
+                        <div className="w-4 h-4">
+                          <DotLottieReact
+                            src="https://lottie.host/1f4e7a70-5f9d-480c-a44c-cf3a5951c6a3/LXEk7kMPg2.lottie"
+                            loop
+                            autoplay
+                          />
+                        </div>
+                      </span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       )}
