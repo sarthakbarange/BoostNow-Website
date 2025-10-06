@@ -126,7 +126,6 @@ import Services from "./pages/Services"
 import Contact from "./pages/Contact"
 import Careers from "./pages/Careers"
 import FAQ from "./pages/FAQ"
-// import ITTraining from "./pages/ITTraining";
 import Traning from "./pages/Training"
 // import * as THREE from "three"
 // import WAVES from "vanta/dist/vanta.waves.min"
@@ -150,10 +149,9 @@ const App = () => {
             <Route path="/careers" element={<Careers />} />
             <Route path="/project" element={<ProjectT />} />
             <Route path="/faq" element={<FAQ />} />
-            {/* <Route path="/it" element={<ITTraining />} /> */}
             <Route path="/services/itservices" element={<Solution />} />
-            <Route path="/services/training" element={<Traning />} />            <Route path="/services/itservices/startups" element={<Startups />} />
-            {/* <Route path="/services/startups" element={<Startups />} /> */}
+            <Route path="/services/training" element={<Traning />} />
+            <Route path="/services/itservices/startups" element={<Startups />} />
             <Route path="/services/itservices/smallbusiness" element={<SmallBusiness />} />
             <Route path="/itrecruitment" element={<ITRecruitmentServices />} />
             <Route path="/itservices" element={<Solution />} />
