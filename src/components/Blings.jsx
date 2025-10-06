@@ -1,325 +1,204 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { ChartContainer } from '@mui/x-charts/ChartContainer';
-import { LinePlot, lineElementClasses, markElementClasses } from '@mui/x-charts/LineChart';
 
 export default function HowItWorks() {
-  const pData = [2, 2, 1.5, 1, 1.5, 2, 2];
-  const xLabels = ['Page A', 'Page B', 'Page C', 'Page D', 'Page E', 'Page F', 'Page G'];
-
   const [rectangleContent, setRectangleContent] = useState({
     title: "Strategic Blueprint",
-    description: "We develop tailored digital marketing strategies that align with your business goals, utilizing various channels to maximize your online presence"
+    description:
+      "We develop tailored digital marketing strategies that align with your business goals, utilizing various channels to maximize your online presence.",
   });
-  const [isDiamond, setIsDiamond] = useState(false);
-  const circleVariants = {
-    initial: { scale: 0, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    hover: {
-      scale: 1.3,
-      boxShadow: "0px 0px 25px #38b2ff",
-      borderColor: "rgba(173, 216, 230, 0.8)",
-      transition: { duration: 0.4, yoyo: Infinity },
-    },
-  };
-
-  const rectangleVariants = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0px 0px 25px rgba(255, 255, 255, 0.5)",
-      rotate: 3,
-      transition: { duration: 0.5, ease: "easeInOut" },
-    },
-  };
-
-  const containerVariants = {
-    animate: {
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const polygonVariants = {
-    initial: { rotate: 0, scale: 1, opacity: 0 },
-    animate: { rotate: 360, scale: 1.5, opacity: 1, transition: { duration: 1 } },
-    whileInView: {
-      rotate: 45,
-      scale: 1.3,
-      opacity: 0.8,
-      transition: { repeat: Infinity, repeatType: "reverse", duration: 2, ease: "easeOut" },
-    },
-  };
-
-  const advancedCircleStyles = "transition-all duration-300 ease-in-out";
-  const advancedRectangleStyles = "bg-black border border-white shadow-lg transition-transform duration-700 ease-in-out";
 
   return (
-    <div className="bg-[#11111189] relative z-10 text-white py-12 flex flex-col items-center">
-      <h1 className="text-transparent bg-clip-text md:mb-8 text-white text-center font-bold text-2xl sm:text-3xl md:text-6xl">
+    <div className="bg-black relative text-white py-8 px-4 flex flex-col items-center min-h-screen overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-teal-900/20"></div>
+
+        {/* Particles */}
+        {[...Array(30)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 3}s`,
+            }}
+          />
+        ))}
+
+        {/* Circuit pattern */}
+        <svg
+          className="absolute inset-0 w-full h-full opacity-20 md:opacity-30"
+          viewBox="0 0 1000 600"
+        >
+          <defs>
+            <pattern
+              id="circuit"
+              x="0"
+              y="0"
+              width="100"
+              height="100"
+              patternUnits="userSpaceOnUse"
+            >
+              <g stroke="#00ffff" strokeWidth="0.5" fill="none" opacity="0.6">
+                <path d="M10,10 L90,10 M10,90 L90,90 M10,10 L10,90 M90,10 L90,90" />
+                <path d="M30,10 L30,30 L70,30 L70,70 L30,70 L30,90" />
+                <circle cx="30" cy="30" r="2" fill="#00ffff" />
+                <circle cx="70" cy="30" r="2" fill="#00ffff" />
+                <circle cx="70" cy="70" r="2" fill="#00ffff" />
+                <circle cx="30" cy="70" r="2" fill="#00ffff" />
+              </g>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#circuit)" />
+        </svg>
+      </div>
+
+      {/* Title */}
+      <h1 className="text-white text-center font-bold text-3xl md:text-5xl lg:text-6xl mb-8 md:mb-16 relative z-10 tracking-wider">
         HOW WE WORK?
       </h1>
 
-      {/* LineChart in the background */}
-      <ChartContainer
-        className="absolute hidden sm:block z-0 bottom-5 right-0 left-0 mx-auto text-white"
-        width={1100}
-        height={320}
-        series={[{ type: 'line', data: pData }]}
-        xAxis={[{ scaleType: 'point', data: xLabels }]}
-        sx={{
-          [`& .${lineElementClasses.root}`]: {
-            stroke: '#ffffff',
-            strokeWidth: 2,
-          },
-          [`& .${markElementClasses.root}`]: {
-            stroke: '#ffffff',
-            scale: '0.6',
-            fill: '#ffffff',
-            strokeWidth: 2,
-          },
-        }}
-        disableAxisListener
-      >
-        <LinePlot className="bg-white text-white" />
-      </ChartContainer>
+      {/* Desktop Layout */}
+      <div className="hidden md:flex relative w-full max-w-6xl mx-auto px-4 z-10 items-center justify-center">
+        {/* Central Rectangle */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-blue-500/30 to-cyan-500/30 rounded-lg blur-xl scale-110 animate-pulse"></div>
 
-      <motion.div
-        initial="initial"
-        animate="animate"
-        variants={containerVariants}
-        className="relative md:w-[500px] md:h-[500px] h-[60vh] w-[95vw] flex flex-col md:flex-row items-center justify-center z-10"
-      >
-        <motion.div
-          variants={rectangleVariants}
-          whileHover="hover"
-          transition={{ duration: 0.8 }}
-          className={`w-[90vw] md:w-[35vw] h-[35vh] md:h-[48vh] rounded-lg flex items-center justify-center border border-transparent ${advancedRectangleStyles}`}
-          style={{
-            transform: isDiamond ? "rotate(45deg)" : "rotate(0deg)",
-            transition: "transform 0.6s ease-in-out",
-          }}
-        >
-          <div className="text-center px-4 md:px-6">
-            <motion.h2
-              className="text-lg sm:text-xl md:text-2xl font-bold mb-2 md:mb-4"
-              whileHover={{ scale: 1.1, color: "rgba(255, 255, 255, 0.9)" }}
-              transition={{ duration: 0.3 }}
-            >
-              {rectangleContent.title}
-            </motion.h2>
-            <motion.p
-              className="text-sm sm:text-base md:text-lg leading-relaxed"
-              whileHover={{ scale: 1.05, color: "rgba(255, 255, 255, 0.8)" }}
-              transition={{ duration: 0.3 }}
-            >
-              {rectangleContent.description}
-            </motion.p>
+          <div className="relative bg-gradient-to-br from-gray-900/80 via-black/90 to-gray-900/80 border-2 border-cyan-400 rounded-lg p-6 sm:p-10 md:p-12 w-full max-w-md md:max-w-lg lg:max-w-xl min-h-[250px] flex items-center justify-center backdrop-blur-sm shadow-2xl shadow-cyan-500/30">
+            <div className="text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-cyan-300 drop-shadow-lg">
+                {rectangleContent.title}
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed text-gray-300">
+                {rectangleContent.description}
+              </p>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Step 1 Circle */}
-        <motion.div
-          variants={circleVariants}
-          whileHover="hover"
-          transition={{ duration: 1 }}
-          onClick={() => {
-            setRectangleContent({
-              title: "Strategic Blueprint",
-              description: "We develop tailored digital marketing strategies that align with your business goals, utilizing various channels to maximize your online presence.",
-            });
-          }}
-          className={`bg-gray-700 z-40 border border-white absolute md:top-[12rem] md:-left-[18rem] top-[2rem] left-[5vw] w-[25vw] h-[25vw] md:w-36 md:h-36 rounded-full flex items-center justify-center cursor-pointer ${advancedCircleStyles}`}
-        >
-          <div className="flex flex-col justify-center items-center">
-            <motion.span
-              className="text-lg md:text-xl font-bold"
-              whileHover={{ scale: 1.2, color: "rgba(255, 105, 180, 0.8)" }}
-              transition={{ duration: 0.3 }}
-            >
-              1
-            </motion.span>
-            <motion.p
-              className="text-xs sm:text-sm md:text-base text-center md:font-semibold"
-              whileHover={{ scale: 1.1, color: "rgba(255, 255, 255, 0.8)" }}
-              transition={{ duration: 0.3 }}
-            >
-              Strategic Blueprint
-            </motion.p>
+        {/* Circles Layout */}
+        <div className="absolute inset-0 flex flex-col justify-between items-center">
+          <div className="flex justify-between w-full px-10">
+            {/* Step 1 */}
+            <CircleStep
+              number="1"
+              label="Strategic Blueprint"
+              onClick={() =>
+                setRectangleContent({
+                  title: "Strategic Blueprint",
+                  description:
+                    "We develop tailored digital marketing strategies that align with your business goals, utilizing various channels to maximize your online presence.",
+                })
+              }
+            />
+            {/* Step 3 */}
+            <CircleStep
+              number="3"
+              label="Performance Enhancement"
+              onClick={() =>
+                setRectangleContent({
+                  title: "Performance Enhancement",
+                  description:
+                    "We track your campaigns' performance, make data-driven adjustments, and share regular reports to keep you updated on progress and results.",
+                })
+              }
+            />
           </div>
-        </motion.div>
 
-        {/* Step 2 Circle */}
-        <motion.div
-          variants={circleVariants}
-          whileHover="hover"
-          transition={{ duration: 1.2 }}
-          onClick={() => {
-            setRectangleContent({
-              title: "Implementation",
-              description: "Once the digital marketing strategy is approved, we move into the implementation phase. This involves launching your campaigns across selected channels, such as social media, email, and online advertising.",
-            });
-            setIsDiamond(false);
-          }}
-          className={`bg-gray-700 border-white border absolute md:top-[28rem] md:left-[10rem] top-[45vh] left-[35vw] w-[25vw] h-[25vw] md:w-36 md:h-36 rounded-full flex items-center justify-center cursor-pointer ${advancedCircleStyles}`}
-        >
-          <div className="flex flex-col justify-center items-center">
-            <motion.span
-              className="text-lg md:text-xl font-bold"
-              whileHover={{ scale: 1.2, color: "rgba(255, 105, 180, 0.8)" }}
-              transition={{ duration: 0.3 }}
-            >
-              2
-            </motion.span>
-            <motion.p
-              className="text-xs sm:text-sm md:text-base text-center md:font-semibold"
-              whileHover={{ scale: 1.1, color: "rgba(255, 255, 255, 0.8)" }}
-              transition={{ duration: 0.3 }}
-            >
-              Implementation
-            </motion.p>
+          {/* Step 2 Center Bottom (shifted down more) */}
+          <div className="flex justify-center w-full mt-24">
+            <CircleStep
+              number="2"
+              label="Implementation"
+              onClick={() =>
+                setRectangleContent({
+                  title: "Implementation",
+                  description:
+                    "Once the digital marketing strategy is approved, we move into the implementation phase. This involves launching your campaigns across selected channels, such as social media, email, and online advertising.",
+                })
+              }
+            />
           </div>
-        </motion.div>
+        </div>
+      </div>
 
-        {/* Step 3 Circle */}
-        <motion.div
-          variants={circleVariants}
-          whileHover="hover"
-          transition={{ duration: 1.4 }}
-          onClick={() => {
-            setRectangleContent({
-              title: "Performance Enhancement",
-              description: "We track your campaigns' performance, make data-driven adjustments, and share regular reports to keep you updated on progress and results.",
-            });
-          }}
-          className={`bg-gray-700 border-white absolute md:top-[12rem] md:-right-[18rem] top-[2rem] right-[5vw] w-[25vw] h-[25vw] md:w-36 md:h-36 rounded-full flex items-center justify-center border cursor-pointer ${advancedCircleStyles}`}
-        >
-          <div className="flex flex-col justify-center items-center">
-            <motion.span
-              className="text-lg md:text-xl font-bold"
-              whileHover={{ scale: 1.2, color: "rgba(255, 105, 180, 0.8)" }}
-              transition={{ duration: 0.3 }}
-            >
-              3
-            </motion.span>
-            <motion.p
-              className="text-xs sm:text-sm md:text-base text-center md:font-semibold"
-              whileHover={{ scale: 1.1, color: "rgba(255, 255, 255, 0.8)" }}
-              transition={{ duration: 0.3 }}
-            >
-              Performance Enhancement
-            </motion.p>
+      {/* Mobile Layout */}
+      <div className="block md:hidden relative w-full max-w-md mx-auto z-10 space-y-8">
+        {/* Central glowing rectangle */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-blue-500/30 to-cyan-500/30 rounded-lg blur-xl scale-105 animate-pulse"></div>
+
+          <div className="relative bg-gradient-to-br from-gray-900/90 via-black/95 to-gray-900/90 border-2 border-cyan-400 rounded-lg p-6 min-h-[200px] flex items-center justify-center backdrop-blur-sm shadow-2xl shadow-cyan-500/30">
+            <div className="text-center">
+              <h2 className="text-lg font-bold mb-3 text-cyan-300 drop-shadow-lg">
+                {rectangleContent.title}
+              </h2>
+              <p className="text-sm leading-relaxed text-gray-300">
+                {rectangleContent.description}
+              </p>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Additional Colorful Star (Polygon) Animations at each corner of the rectangle */}
-        {/* Top-left corner */}
-        <motion.svg
-          variants={polygonVariants}
-          whileInView="whileInView"
-          initial="initial"
-          animate="animate"
-          className="absolute md:top-0 top-[-2rem] left-0 transform translate-x-1/2 translate-y-1/2"
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          viewBox="0 0 100 100"
-        >
-          <polygon
-            points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-            fill="url(#grad4)"
-            stroke="white"
-            strokeWidth="2"
+        {/* Circles in vertical layout */}
+        <div className="flex flex-col items-center gap-6">
+          <CircleStep
+            number="1"
+            label="Strategic Blueprint"
+            onClick={() =>
+              setRectangleContent({
+                title: "Strategic Blueprint",
+                description:
+                  "We develop tailored digital marketing strategies that align with your business goals, utilizing various channels to maximize your online presence.",
+              })
+            }
           />
-          <defs>
-            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: "#111", stopOpacity: 1 }} />
-              <stop offset="0%" style={{ stopColor: "#38b6ff", stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: "#00255C", stopOpacity: 1 }} />
-            </linearGradient>
-          </defs>
-        </motion.svg>
+          <CircleStep
+            number="2"
+            label="Implementation"
+            onClick={() =>
+              setRectangleContent({
+                title: "Implementation",
+                description:
+                  "Once the digital marketing strategy is approved, we move into the implementation phase. This involves launching your campaigns across selected channels, such as social media, email, and online advertising.",
+              })
+            }
+          />
+          <CircleStep
+            number="3"
+            label="Performance Enhancement"
+            onClick={() =>
+              setRectangleContent({
+                title: "Performance Enhancement",
+                description:
+                  "We track your campaigns' performance, make data-driven adjustments, and share regular reports to keep you updated on progress and results.",
+              })
+            }
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
-        {/* Top-right corner */}
-        <motion.svg
-          variants={polygonVariants}
-          whileInView="whileInView"
-          initial="initial"
-          animate="animate"
-          className="absolute md:top-0 top-[-2rem] right-0 transform translate-x-1/2 translate-y-1/2"
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          viewBox="0 0 100 100"
-        >
-          <polygon
-            points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-            fill="url(#grad4)"
-            stroke="white"
-            strokeWidth="2"
-          />
-          <defs>
-            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: "rgb(255,0,255)", stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: "rgb(255,255,0)", stopOpacity: 1 }} />
-            </linearGradient>
-          </defs>
-        </motion.svg>
-
-        {/* Bottom-left corner */}
-        <motion.svg
-          variants={polygonVariants}
-          whileInView="whileInView"
-          initial="initial"
-          animate="animate"
-          className="absolute md:block hidden bottom-0 left-0 transform translate-x-1/2 translate-y-1/2"
-          xmlns="http://www.w3.org/2000/svg"
-          width="50"
-          height="50"
-          viewBox="0 0 100 100"
-        >
-          <polygon
-            points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-            fill="url(#grad4)"
-            stroke="white"
-            strokeWidth="2"
-          />
-          <defs>
-            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: "rgb(255,0,255)", stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: "rgb(255,255,0)", stopOpacity: 1 }} />
-            </linearGradient>
-          </defs>
-        </motion.svg>
-
-        {/* Bottom-right corner */}
-        <motion.svg
-          variants={polygonVariants}
-          whileInView="whileInView"
-          initial="initial"
-          animate="animate"
-          className="absolute md:block hidden bottom-0 right-0 transform translate-x-1/2 translate-y-1/2"
-          xmlns="http://www.w3.org/2000/svg"
-          width="50"
-          height="50"
-          viewBox="0 0 100 100"
-        >
-          <polygon
-            points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-            fill="url(#grad4)"
-            stroke="white"
-            strokeWidth="2"
-          />
-          <defs>
-            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: "rgb(255,0,255)", stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: "rgb(255,255,0)", stopOpacity: 1 }} />
-            </linearGradient>
-          </defs>
-        </motion.svg>
-      </motion.div>
+/* 🔹 Reusable Circle Step Component */
+function CircleStep({ number, label, onClick }) {
+  return (
+    <div
+      onClick={onClick}
+      className="cursor-pointer group relative flex flex-col items-center"
+    >
+      <div className="absolute inset-0 bg-cyan-400/40 rounded-full blur-lg scale-125 group-hover:scale-150 transition-transform duration-300"></div>
+      <div className="relative w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-gray-800 to-black border-2 border-cyan-400 rounded-full flex flex-col items-center justify-center group-hover:border-cyan-300 transition-all duration-300 shadow-lg shadow-cyan-500/50">
+        <span className="text-xl md:text-2xl font-bold text-cyan-400 group-hover:text-cyan-300">
+          {number}
+        </span>
+        <p className="text-xs md:text-sm text-center text-gray-300 mt-1 px-2 group-hover:text-white">
+          {label}
+        </p>
+      </div>
     </div>
   );
 }

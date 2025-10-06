@@ -3,12 +3,12 @@ import { FaTrophy, FaChartLine, FaUserFriends, FaDatabase, FaComments, FaCogs } 
 
 const FAQNo = () => {
   return (
-    <section className="sm:p-8 p-2 text-white " id="why-choose">
+    <section className="sm:p-8 p-2 text-white" id="why-choose">
       <div className="container mx-auto text-center">
         <h2 className="text-5xl sm:text-6xl font-bold mb-10">Why Choose BoostNow?</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 sm:gap-12 gap-x-2 gap-y-4">
           {/* Proven Results */}
-          <div className="bg-white rounded-3xl shadow-lg sm:p-6 p-3 hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+          <div className="bg-white rounded-3xl shadow-lg border border-transparent sm:p-6 p-3 hover:shadow-xl hover:border-cyan-600 transition-all duration-300 transform hover:scale-105">
             <FaTrophy className="sm:w-24 w-12 h-12 sm:h-24 mx-auto mb-6 transform hover:scale-110 transition-transform duration-300 text-blue-600" />
             <h3 className="text-xl sm:text-4xl font-semibold text-gray-800 mb-4">Proven Results</h3>
             <p className="text-gray-600 sm:text-lg text-sm">
@@ -17,7 +17,7 @@ const FAQNo = () => {
           </div>
 
           {/* Customized Strategies */}
-          <div className="bg-white rounded-3xl shadow-lg sm:p-6 p-3 hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+          <div className="bg-white rounded-3xl shadow-lg border border-transparent sm:p-6 p-3 hover:shadow-xl hover:border-cyan-600 transition-all duration-300 transform hover:scale-105">
             <FaChartLine className="sm:w-24 w-12 h-12 sm:h-24 mx-auto mb-6 transform hover:scale-110 transition-transform duration-300 text-blue-600" />
             <h3 className="text-xl sm:text-4xl font-semibold text-gray-800 mb-4">Customized Strategies</h3>
             <p className="text-gray-600 sm:text-lg text-sm">
@@ -26,7 +26,7 @@ const FAQNo = () => {
           </div>
 
           {/* Expert Team */}
-          <div className="bg-white rounded-3xl shadow-lg sm:p-6 p-3 hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+          <div className="bg-white rounded-3xl shadow-lg border border-transparent sm:p-6 p-3 hover:shadow-xl hover:border-cyan-600 transition-all duration-300 transform hover:scale-105">
             <FaUserFriends className="sm:w-24 w-12 h-12 sm:h-24 mx-auto mb-6 transform hover:scale-110 transition-transform duration-300 text-blue-600" />
             <h3 className="text-xl sm:text-4xl font-semibold text-gray-800 mb-4">Expert Team</h3>
             <p className="text-gray-600 sm:text-lg text-sm">
@@ -35,7 +35,7 @@ const FAQNo = () => {
           </div>
 
           {/* Data-Driven Decisions */}
-          <div className="bg-white rounded-3xl shadow-lg sm:p-6 p-3 hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+          <div className="bg-white rounded-3xl shadow-lg border border-transparent sm:p-6 p-3 hover:shadow-xl hover:border-cyan-600 transition-all duration-300 transform hover:scale-105">
             <FaDatabase className="sm:w-24 w-12 h-12 sm:h-24 mx-auto mb-6 transform hover:scale-110 transition-transform duration-300 text-blue-600" />
             <h3 className="text-xl sm:text-4xl font-semibold text-gray-800 mb-4">Data-Driven Decisions</h3>
             <p className="text-gray-600 sm:text-lg text-sm">
@@ -44,7 +44,7 @@ const FAQNo = () => {
           </div>
 
           {/* Transparent Communication */}
-          <div className="bg-white rounded-3xl shadow-lg sm:p-6 p-3 hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+          <div className="bg-white rounded-3xl shadow-lg border border-transparent sm:p-6 p-3 hover:shadow-xl hover:border-cyan-600 transition-all duration-300 transform hover:scale-105">
             <FaComments className="sm:w-24 w-12 h-12 sm:h-24 mx-auto mb-6 transform hover:scale-110 transition-transform duration-300 text-blue-600" />
             <h3 className="text-xl sm:text-4xl font-semibold text-gray-800 mb-4">Transparent Communication</h3>
             <p className="text-gray-600 sm:text-lg text-sm">
@@ -53,7 +53,7 @@ const FAQNo = () => {
           </div>
 
           {/* Comprehensive Services */}
-          <div className="bg-white rounded-3xl shadow-lg sm:p-6 p-3 hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+          <div className="bg-white rounded-3xl shadow-lg border border-transparent sm:p-6 p-3 hover:shadow-xl hover:border-cyan-600 transition-all duration-300 transform hover:scale-105">
             <FaCogs className="sm:w-24 w-12 h-12 sm:h-24 mx-auto mb-6 transform hover:scale-110 transition-transform duration-300 text-blue-600" />
             <h3 className="text-xl sm:text-4xl font-semibold text-gray-800 mb-4">Comprehensive Services</h3>
             <p className="text-gray-600 sm:text-lg text-sm">
