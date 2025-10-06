@@ -98,6 +98,7 @@ const handleSubmit = async (e) => {
                 {/* <div onMouseLeave={() => setDropdownOpen(false)} className={` absolute left-0 top-4 mt-2 w-48 rounded-md shadow-lg bg-black ring-1 ring-black ring-opacity-5`}> */}                  <div className="py-1">                    <Link to="/services/itservices" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-gray-900">IT Services</Link>
                     <Link to="/services/training" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-gray-900">IT Training</Link>
                     <Link to="/itrecruitment" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-gray-900">IT Recruitment</Link>
+                    <Link to="/services/daas" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-gray-900">DaaS (Department as a Service)</Link>
                     <Link to="https://boostnowai.com/" target="_blank" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-gray-900">ERP</Link>
                   </div>
                 </div>
