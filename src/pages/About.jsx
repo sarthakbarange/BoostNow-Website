@@ -1,110 +1,198 @@
+
 import React from "react";
-import missionImage from "../assets/svg/mission.svg";
-import visionImage from "../assets/svg/vision.svg";
+import missionImage from "../assets/svg/mission.png"; // PNG inside svg folder
+import visionImage from "../assets/svg/vision.png";   // PNG inside svg folder
 import HowWeWork from "../components/HowWeWork";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
+
 const About = () => {
-  return (<>
-   <Helmet>
+  return (
+    <>
+      <Helmet>
         <title>About | BoostNow</title>
-        <meta name="description" content="BoostNow is a leading provider of IT solutions, specializing in web development, ERP systems, cybersecurity, automation, and business technology. We help startups, enterprises, and small businesses achieve digital transformation." />
-        <meta name="keywords" content="About BoostNow, IT solutions provider, web development, ERP services, cybersecurity, business automation, startups, digital transformation, software development, technology company, enterprise solutions" />
+        <meta
+          name="description"
+          content="BoostNow is a leading provider of IT solutions, specializing in web development, ERP systems, cybersecurity, automation, and business technology. We help startups, enterprises, and small businesses achieve digital transformation."
+        />
+        <meta
+          name="keywords"
+          content="About BoostNow, IT solutions provider, web development, ERP services, cybersecurity, business automation, startups, digital transformation, software development, technology company, enterprise solutions"
+        />
       </Helmet>
-    <div className="relative z-10 pt-16 min-h-screen overflow-hidden">
-      <div className="relative z-10">
-        <section className="relative text-white py-12 px-6">
-          <div className="container mx-auto max-w-6xl text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 transition-all duration-500 transform hover:scale-105">
-              About Us
-            </h1>
-            <p className="text-lg md:text-xl text-gray-300">
-              Empowering businesses to succeed with innovative digital solutions.
-            </p>
-          </div>
-        </section>
 
-        <section className="py-12 px-6 relative">
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="text-center transition-all duration-500 transform hover:scale-105">
-              <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white">Our Mission</h2>
-              <p className="text-slate-200 leading-relaxed md:text-xl text-lg">
-                At BoostNow, our mission is to drive business growth by offering
-                cutting-edge digital solutions tailored to our clients' needs. We
-                are dedicated to delivering exceptional results through innovation,
-                creativity, and collaboration.
+      {/* Enhanced Futuristic Blue Theme Background */}
+      <div className="relative min-h-screen overflow-hidden">
+        {/* Gradient Layers */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-950 via-blue-800 to-indigo-900 animate-gradient-x"></div>
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(0,168,255,0.25),transparent_70%)]"></div>
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(0,119,255,0.2),transparent_70%)]"></div>
+
+        <div className="relative z-10 pt-20">
+          {/* Hero Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white py-20 px-6 text-center"
+          >
+            <div className="container mx-auto max-w-6xl">
+              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-[0_0_25px_rgba(0,170,255,0.6)]">
+                About Us
+              </h1>
+              <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
+                Empowering businesses to succeed with cutting-edge digital
+                solutions and futuristic innovation.
               </p>
             </div>
-            <div className="w-36 h-36 sm:w-60 sm:h-60 max-w-md mx-auto">
-              <img
-                src={missionImage}
-                alt="Mission"
-                className="rounded-lg backdrop-blur-lg border-white/30 shadow-lg w-full h-auto object-cover"
-              />
-            </div>
-          </div>
-        </section>
+          </motion.section>
 
-        <section className="sm:py-12 px-6 relative">
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="w-40 h-40 sm:w-60 sm:h-60 max-w-md mx-auto">
-              <img
-                src={visionImage}
-                alt="Vision"
-                className="rounded-lg backdrop-blur-lg border-white/30 shadow-lg w-full h-auto object-cover"
-              />
-            </div>
-            <div className="text-center transition-all duration-500 transform hover:scale-105">
-              <h2 className="text-4xl md:text-6xl font-bold mb-4 text-gray-100">Our Vision</h2>
-              <p className="text-slate-200 leading-relaxed sm:text-xl text:lg">
-                To be a global leader in digital transformation, enabling businesses
-                to thrive in the digital era. We aim to set the benchmark for
-                excellence in delivering impactful solutions that inspire change and
-                create value for all stakeholders.
-              </p>
-            </div>
-          </div>
-        </section>
+          {/* Mission Section */}
+          <section className="py-20 px-6">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_0_20px_rgba(0,140,255,0.6)]">
+                  Our Mission
+                </h2>
+                <p className="text-blue-200 leading-relaxed md:text-lg max-w-xl mx-auto">
+                  At BoostNow, our mission is to accelerate business growth by
+                  offering customized, world-class digital solutions. We thrive
+                  on creativity, collaboration, and innovation to deliver
+                  exceptional results.
+                </p>
+              </motion.div>
 
-        <section className="py-12 px-6">
-          <div className="container mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-gray-100">Our Core Values</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 sm:gap-8 gap-4 text-xl">
-              {[
-                {
-                  title: "Innovation",
-                  description:
-                    "We embrace creativity and strive to deliver innovative solutions that drive success.",
-                },
-                {
-                  title: "Integrity",
-                  description:
-                    "We uphold the highest standards of integrity in all our actions and decisions.",
-                },
-                {
-                  title: "Customer-Centric",
-                  description:
-                    "We put our clients at the heart of everything we do, ensuring their success is our success.",
-                },
-              ].map((value, index) => (
-                <div
-                  key={index}
-                  className="bg-transparent backdrop-blur-lg p-6 border border-white/30 rounded-lg shadow-lg hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
-                >
-                  <h3 className="text-xl font-bold text-gray-300 mb-4">{value.title}</h3>
-                  <p className="text-white/90">{value.description}</p>
-                </div>
-              ))}
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="w-56 h-56 sm:w-80 sm:h-80 mx-auto relative"
+              >
+                <div className="absolute inset-0 rounded-2xl blur-3xl bg-blue-500/40"></div>
+                <img
+                  src={missionImage}
+                  alt="Mission"
+                  className="relative rounded-2xl border border-blue-400/30 shadow-[0_0_25px_rgba(0,180,255,0.5)] hover:scale-105 transition-transform duration-500"
+                />
+              </motion.div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="py-12 px-6">
-          <div className="container mx-auto text-center">
-            <HowWeWork />
-          </div>
-        </section>
+          {/* Vision Section */}
+          <section className="py-20 px-6">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="w-56 h-56 sm:w-80 sm:h-80 mx-auto relative"
+              >
+                <div className="absolute inset-0 rounded-2xl blur-3xl bg-indigo-500/40"></div>
+                <img
+                  src={visionImage}
+                  alt="Vision"
+                  className="relative rounded-2xl border border-indigo-400/30 shadow-[0_0_25px_rgba(80,130,255,0.5)] hover:scale-105 transition-transform duration-500"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_0_20px_rgba(100,150,255,0.7)]">
+                  Our Vision
+                </h2>
+                <p className="text-blue-200 leading-relaxed md:text-lg max-w-xl mx-auto">
+                  To become a global leader in digital transformation, empowering
+                  businesses to thrive in the era of innovation. We strive to
+                  create impactful solutions that inspire change and generate
+                  value for all stakeholders.
+                </p>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Core Values */}
+          <section className="py-20 px-6">
+            <div className="container mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white drop-shadow-[0_0_20px_rgba(0,160,255,0.7)]">
+                Our Core Values
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                {[
+                  {
+                    title: "Innovation",
+                    description:
+                      "We embrace creativity and deliver futuristic solutions that shape tomorrow.",
+                  },
+                  {
+                    title: "Integrity",
+                    description:
+                      "We uphold transparency, trust, and accountability in every action.",
+                  },
+                  {
+                    title: "Customer First",
+                    description:
+                      "We put our clients at the center, ensuring their success drives ours.",
+                  },
+                ].map((value, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    className="p-8 rounded-2xl bg-blue-900/30 backdrop-blur-xl border border-blue-400/20 shadow-[0_0_20px_rgba(0,170,255,0.3)] hover:shadow-[0_0_30px_rgba(0,180,255,0.6)] transform hover:scale-105 transition-all duration-500"
+                  >
+                    <h3 className="text-2xl font-semibold text-white mb-4 drop-shadow-[0_0_15px_rgba(0,150,255,0.5)]">
+                      {value.title}
+                    </h3>
+                    <p className="text-blue-200">{value.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* How We Work */}
+          <section className="py-20 px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="container mx-auto text-center"
+            >
+              <HowWeWork />
+            </motion.div>
+          </section>
+        </div>
       </div>
-    </div>
+
+      {/* Tailwind custom animation for gradient */}
+      <style>
+        {`
+          @keyframes gradient-x {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+          }
+          .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradient-x 15s ease infinite;
+          }
+        `}
+      </style>
     </>
   );
 };

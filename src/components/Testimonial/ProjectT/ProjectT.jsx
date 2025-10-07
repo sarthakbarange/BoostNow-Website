@@ -149,19 +149,123 @@ const cards = [
 
 const ProjectT = () => {
   return (
-    
-    
-    <div className="bg-black min-h-screen p-10 mt-20 z-20 relative">
-   
-      <h1 className="text-white text-5xl md:text-6xl font-bold text-center mb-8">
-        Templates & Testimonials
-      </h1>
+    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl"></div>
+      </div>
 
-   
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {cards.map((card, index) => (
-          <Cards key={index} card={card} />
-        ))}
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="h-full w-full bg-grid-white/[0.05] bg-[size:50px_50px]"></div>
+      </div>
+
+      <div className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <div className="inline-block">
+            <span className="text-sm font-medium text-blue-400 tracking-widest uppercase mb-4 block">
+              Our Portfolio
+            </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent leading-tight mb-6">
+              Templates & Testimonials
+            </h1>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+              Explore our collection of stunning templates and see what our clients have achieved with our solutions
+            </p>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-4xl mx-auto">
+          <div className="text-center p-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700/30">
+            <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">{cards.length}+</div>
+            <div className="text-gray-400 text-sm">Templates</div>
+          </div>
+          <div className="text-center p-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700/30">
+            <div className="text-2xl md:text-3xl font-bold text-cyan-400 mb-1">100%</div>
+            <div className="text-gray-400 text-sm">Responsive</div>
+          </div>
+          <div className="text-center p-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700/30">
+            <div className="text-2xl md:text-3xl font-bold text-purple-400 mb-1">24/7</div>
+            <div className="text-gray-400 text-sm">Support</div>
+          </div>
+          <div className="text-center p-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700/30">
+            <div className="text-2xl md:text-3xl font-bold text-green-400 mb-1">Fast</div>
+            <div className="text-gray-400 text-sm">Delivery</div>
+          </div>
+        </div> */}
+
+        {/* Main Content Container */}
+        <div className="max-w-7xl mx-auto">
+          {/* Filter/Category Section */}
+          {/* <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full font-medium hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg">
+              All Templates
+            </button>
+            <button className="px-6 py-3 bg-gray-800/50 text-gray-300 rounded-full font-medium hover:bg-gray-700/50 transition-all duration-300 border border-gray-600/30">
+              Business
+            </button>
+            <button className="px-6 py-3 bg-gray-800/50 text-gray-300 rounded-full font-medium hover:bg-gray-700/50 transition-all duration-300 border border-gray-600/30">
+              Portfolio
+            </button>
+            <button className="px-6 py-3 bg-gray-800/50 text-gray-300 rounded-full font-medium hover:bg-gray-700/50 transition-all duration-300 border border-gray-600/30">
+              E-commerce
+            </button>
+          </div> */}
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+            {cards.map((card, index) => (
+              <div
+                key={index}
+                className="group relative transform transition-all duration-500 hover:scale-105"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                }}
+              >
+                {/* Card Glow Effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Enhanced Card Wrapper */}
+                <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden shadow-2xl">
+                  <Cards card={card} />
+                </div>
+
+                {/* Card Number Badge */}
+                <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+                  #{String(index + 1).padStart(2, '0')}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Load More Section */}
+          {/* <div className="text-center mt-16">
+            <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <span className="relative z-10">Load More Templates</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            </button>
+          </div> */}
+        </div>
+
+        {/* Bottom CTA Section */}
+        {/* <div className="mt-20 text-center">
+          <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm rounded-2xl border border-gray-700/30 p-8 max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Need a Custom Solution?
+            </h3>
+            <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+              Can't find what you're looking for? Our team can create a custom template tailored to your specific needs.
+            </p>
+            <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg">
+              Get Custom Quote
+            </button>
+          </div>
+        </div> */}
       </div>
     </div>
   );

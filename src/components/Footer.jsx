@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import logo from "/logo2.png";
 import { Link, useLocation } from "react-router-dom";
@@ -18,7 +19,7 @@ export default function Footer() {
     {/* Call to Action Section */}
     <div className="relative bg-[#111827] overflow-hidden">
       {/* Call to Action Content */}
-      <div className="relative z-10 text-center py-8 sm:py-12 md:py-16 px-4 sm:px-6">
+      {/* <div className="relative z-10 text-center py-8 sm:py-12 md:py-16 px-4 sm:px-6">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
           GET STARTED NOW
         </h2>
@@ -31,9 +32,9 @@ export default function Footer() {
           className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg text-sm sm:text-base"
         >
           {/* <span className="mr-2">▶</span> */}
-          SUBMIT REQUEST
+          {/* SUBMIT REQUEST
         </a>
-      </div>
+      </div> */} */
     </div>
 
     <footer
@@ -140,6 +141,14 @@ export default function Footer() {
           <div className="text-center sm:text-left">
             <h4 className="text-white font-semibold mb-4 sm:mb-6 text-sm sm:text-base">Our Services</h4>
             <ul className="space-y-2 sm:space-y-3">
+              <li>
+                <Link
+                  to="/daas"
+                  className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 text-xs sm:text-sm"
+                >
+                  DaaS
+                </Link>
+              </li>
               <li>
                 <Link
                   to="/services/itservices"

@@ -104,20 +104,20 @@ export default function Navbar() {
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
             </Link>
 
-            {/* Services dropdown (desktop hover) */}
-            <div className="relative">
-              <button
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
-                className="flex items-center text-white text-lg font-medium group"
-              >
+            {/* Services: clickable Link (navigates to /services) + hover dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
+              <Link to="/services" className="flex items-center text-white text-lg font-medium group">
                 Services
                 {dropdownOpen ? (
                   <ChevronDownIcon className="ml-1 w-5 h-5" />
                 ) : (
                   <ChevronRightIcon className="ml-1 w-5 h-5" />
                 )}
-              </button>
+              </Link>
 
               {dropdownOpen && (
                 <div
@@ -126,6 +126,12 @@ export default function Navbar() {
                   className="absolute left-0 mt-2 w-56 rounded-lg bg-black/80 backdrop-blur-xl border border-cyan-500/30 shadow-lg"
                 >
                   <div className="py-2">
+                     <Link
+                      to="/services/DaaS"
+                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white"
+                    >
+                     DaaS
+                    </Link>
                     <Link
                       to="/services/itservices"
                       className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white"
@@ -167,7 +173,7 @@ export default function Navbar() {
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
             </Link>
 
-            {/* FIX: Testimonial now explicitly points to /project */}
+            {/* Testimonial */}
             <Link to="/project" className="relative text-white text-lg font-medium group">
               Testimonial
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
@@ -214,19 +220,32 @@ export default function Navbar() {
               About
             </Link>
 
-            {/* Mobile Services accordion */}
+            {/* Mobile Services: clickable Link + independent chevron to expand dropdown */}
             <div>
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center w-full justify-between py-2 rounded hover:bg-white/5 px-3"
-                aria-expanded={dropdownOpen}
-              >
-                <span>Services</span>
-                {dropdownOpen ? <ChevronDownIcon className="w-6 h-6" /> : <ChevronRightIcon className="w-6 h-6" />}
-              </button>
+              <div className="flex items-center justify-between">
+                <Link
+                  to="/services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 rounded hover:bg-white/5 px-3 text-white w-full"
+                >
+                  Services
+                </Link>
+
+                <button
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  className="ml-2 p-2 rounded hover:bg-white/5 text-white"
+                  aria-expanded={dropdownOpen}
+                  aria-label="Toggle services submenu"
+                >
+                  {dropdownOpen ? <ChevronDownIcon className="w-6 h-6" /> : <ChevronRightIcon className="w-6 h-6" />}
+                </button>
+              </div>
 
               {dropdownOpen && (
                 <div className="pl-4 mt-2 flex flex-col gap-2 text-base text-gray-200">
+                  <Link to="/services/DaaS" onClick={() => setMobileMenuOpen(false)} className="py-2 rounded hover:bg-white/5 px-3">
+                    DaaS
+                  </Link>
                   <Link to="/services/itservices" onClick={() => setMobileMenuOpen(false)} className="py-2 rounded hover:bg-white/5 px-3">
                     IT Services
                   </Link>
@@ -332,6 +351,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </div>
-  )
+    </div>
+  )
 }
