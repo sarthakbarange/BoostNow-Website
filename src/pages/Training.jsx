@@ -1,9 +1,12 @@
 "use client"
-import React, { useState } from "react";
-import { FaRocket, FaFlask, FaLaptopCode, FaCogs } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaRocket, FaFlask, FaLaptopCode, FaCogs, FaGraduationCap, FaUsers, FaCertificate, FaArrowRight, FaCode, FaBrain, FaGamepad, FaDesktop } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Technologies from "../components/Technology";
 import PopupForm from "../components/PopupForm";
 import { Helmet } from "react-helmet";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const services = [
   {
     name: "Full stack Web Development",
@@ -59,6 +62,15 @@ const Traning = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isFormVisible, setFormVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(window.innerWidth < 768 ? false : true);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false,
+      offset: 100,
+    });
+  }, []);
   const handleButtonClick = (serviceName) => {
     setSelectedService(serviceName);
     window.scrollTo({ 
@@ -76,75 +88,149 @@ const Traning = () => {
     <meta name="description" content="BoostNow provides professional training programs in IT services, web development, cybersecurity, ERP, and business automation. Enhance your skills with hands-on learning and expert guidance." />
     <meta name="keywords" content="training programs, IT training, web development training, cybersecurity training, ERP courses, business automation training, hands-on learning, professional development, tech training, software development courses, BoostNow training" />
   </Helmet>
-      <main className="min-h-screen relative z-10 pt-8 text-white bg-transparent">
+      <main className="min-h-screen relative z-10 text-white bg-transparent">
+        {/* Hero Section */}
+        <section className="relative py-20 px-4 overflow-hidden" data-aos="fade-in">
+          <div className="absolute inset-0 bg-black/30"></div>                                                              
+          <div className="max-w-7xl mx-auto text-center relative z-10">
+            <div className="flex justify-center mb-6" data-aos="zoom-in">
+              
+            </div>
+            <h1 className="text-5xl sm:text-7xl font-bold mb-6 bg-white bg-clip-text text-transparent" data-aos="fade-up">
+              IT TRAINING
+            </h1>
+            <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+              Transform Your Career with Industry-Leading Technology Training Programs
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="400">
+              <button
+                onClick={() => {
+                  document.getElementById('training-programs').scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg"
+              >
+                Explore Programs
+              </button>
+              <Link to="/services" className="text-blue-400 hover:text-blue-300 flex items-center gap-2 transition-colors">
+                View All Services <FaArrowRight />
+              </Link>
+            </div>
+          </div>
+        </section>
         <section className="max-w-7xl mx-auto px-4 py-20">
-          <h2 className="text-4xl sm:text-6xl text-center font-bold text-white mb-12">IT TRAINING</h2>
-          <p className="md:text-lg text-base md:text-center text-justify  text-gray-100 text-muted-foreground mb-12">
-          Our IT training services offer hands-on, expert-led courses designed to enhance your skills in areas such as software development, data analysis, cybersecurity, and cloud computing. Whether you're a beginner or looking to advance your expertise, our tailored programs equip you with the knowledge and tools to excel in the tech industry.
-          </p>
           <Technologies />
-          <div className="grid gap-12 my-16">
-            <div className="bg-black border border-white md:rounded-[4rem] rounded-2xl shadow-md flex md:flex-row flex-col items-center md:p-6 p-4 transition-transform transform hover:scale-105">
-              <div className="flex-1 ">
-                <img
-                  // src="/startup/techconsult.gif"
-                  src="/img/training/IT TRAINING.jpg"
-                  alt="techconsult"
-                  className="md:rounded-[4rem] rounded-2xl h-[250px] md:h-[300px]"
-                />
+          
+          
+          {/* Main Training Overview */}
+          <div className="grid gap-12 my-16" id="training-programs">
+            <div className="bg-white/5 backdrop-blur-2xl border border-white/20 md:rounded-[4rem] rounded-3xl shadow-2xl flex md:flex-row flex-col items-center md:p-10 p-8 transition-all transform hover:scale-[1.02] hover:bg-white/10 hover:border-white/30 hover:shadow-blue-500/20 relative overflow-hidden" data-aos="fade-right">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-cyan-600/5"></div>
+              <div className="flex-1 relative z-10">
+                <div className="relative overflow-hidden md:rounded-[3rem] rounded-2xl shadow-2xl">
+                  <img
+                    src="/img/training/IT TRAINING.jpg"
+                    alt="IT Training Overview"
+                    className="h-[250px] md:h-[350px] w-full object-cover transition-transform duration-700 hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                </div>
               </div>
-              <div className="flex-1 md:mt-0 mt-4 md:pl-6 pl-1">
-      <h3 className="text-4xl sm:text-6xl text-white flex items-center">
-        IT TRAINING
-      </h3>
-      <p
-        className={`mt-4 text-white/90 text-base md:text-lg ${
-          isExpanded ? "line-clamp-none" : "line-clamp-3 "
-        } md:text-left text-justify`}
-      >
-        Unlock your potential with our comprehensive IT training programs, designed for both beginners and professionals. Gain in-demand skills in software development, data science, cybersecurity, cloud computing, and more.  
-        Our expert-led, hands-on courses ensure real-world application, preparing you for career growth and success in the ever-evolving tech landscape.  
-        Whether you're upskilling, switching careers, or enhancing your expertise, our structured learning approach, live projects, and industry-relevant curriculum provide the edge you need to thrive.  
-        Join us and take your first step toward mastering the technology of tomorrow!
-      </p>
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="mt-2 text-blue-400 hover:underline md:hidden"
-      >
-        {isExpanded ? "Read Less" : "Read More"}
-      </button>
-    </div>
+              <div className="flex-1 md:mt-0 mt-6 md:pl-8 pl-2 relative z-10">
+                <h3 className="text-3xl sm:text-5xl text-white flex items-center gap-3 mb-6">
+                  {/* <FaGraduationCap className="text-blue-400" /> */}
+                  IT TRAINING
+                </h3>
+                <p className={`text-white/90 text-base md:text-lg leading-relaxed ${
+                  isExpanded ? "line-clamp-none" : "line-clamp-4"
+                } md:text-left text-justify`}>
+                  Unlock your potential with our comprehensive IT training programs, designed for both beginners and professionals. Gain in-demand skills in software development, data science, cybersecurity, cloud computing, and more.
+                  <br /><br />
+                  Our expert-led, hands-on courses ensure real-world application, preparing you for career growth and success in the ever-evolving tech landscape.
+                  <br /><br />
+                  Whether you're upskilling, switching careers, or enhancing your expertise, our structured learning approach, live projects, and industry-relevant curriculum provide the edge you need to thrive.
+                </p>
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="mt-4 text-blue-400 hover:text-blue-300 transition-colors md:hidden flex items-center gap-2"
+                >
+                  {isExpanded ? "Read Less" : "Read More"} <FaArrowRight className={`transform transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+                </button>
+              </div>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-black border border-white md:rounded-[4rem] rounded-2xl shadow-md flex md:flex-row  flex-col items-center md:p-6 p-4 transition-transform transform hover:scale-105"
-              >
-                <div className="flex-1 ">
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    className="md:rounded-[3rem] rounded-xl sm:h-[250px] md:h-[300px] h-32"
-                  />
-                </div>
-                <div className="flex-1 md:mt-0 mt-4 pl-2 md:pl-6">
-                  <h3 className="text-lg sm:text-2xl text-white flex items-center gap-2">
-                    {service.icon} {service.name}
-                  </h3>
-                  <p className="mt-4 text-justify text-white/90 sm:text-base text-sm">{service.description}</p>
-                  <button
-                    onClick={() => handleButtonClick(service.name)}
-                    className="mt-6 bg-blue-500 text-white rounded-lg py-2 px-6 hover:bg-blue-700 ml-20 sm:ml-0"
+          {/* Training Programs Grid */}
+          <div className="mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-12" data-aos="fade-up">Our Training Programs</h2>
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+              {services.map((service, index) => {
+                const gradientMap = {
+                  "Full stack Web Development": "from-blue-500/20 via-cyan-500/20 to-blue-600/20",
+                  "AI": "from-blue-500/20 via-cyan-500/20 to-blue-600/20",
+                  "ML": "from-blue-500/20 via-cyan-500/20 to-blue-600/20",
+                  "FrontEnd Development": "from-blue-500/20 via-cyan-500/20 to-blue-600/20",
+                  "Game Development": "from-blue-500/20 via-cyan-500/20 to-blue-600/20",
+                  "MERN Stack": "from-blue-500/20 via-cyan-500/20 to-blue-600/20"
+                };
+                
+                return (
+                  <div
+                    key={index}
+                    className="group relative bg-white/5 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-2xl overflow-hidden hover:bg-white/10 hover:border-white/30 transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
                   >
-                    Sign Up Now
-                  </button>
-                </div>
-              </div>
-            ))}
+                    {/* Background Gradient */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${gradientMap[service.name]} opacity-50`}></div>
+                    
+                    {/* Image Section */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                      
+                      
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="relative p-6 z-10">
+                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors duration-300">
+                        {service.name}
+                      </h3>
+                      
+                      <p className="text-gray-300/90 text-sm leading-relaxed mb-6 line-clamp-3">
+                        {service.description}
+                      </p>
+                      
+                      
+                      
+                      {/* Action Buttons */}
+                      <div className="space-y-3">
+                        <button
+                          onClick={() => handleButtonClick(service.name)}
+                          className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-cyan-500/25 border border-white/20"
+                        >
+                          Enroll Now
+                        </button>
+                        
+                      </div>
+                    </div>
+                    
+                    {/* Decorative Elements */}
+                    <div className="absolute -top-10 -right-10 w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-full blur-xl"></div>
+                    <div className="absolute -bottom-10 -left-10 w-16 h-16 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-full blur-xl"></div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
+          
+          
+          
+          
         </section>
       </main>
 
@@ -155,4 +241,4 @@ const Traning = () => {
   );
 };
 
-export default Traning;
+export default Traning;

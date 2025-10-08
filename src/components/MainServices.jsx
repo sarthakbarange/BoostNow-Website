@@ -1,4 +1,3 @@
-
 import { Laptop, Users, Database, UserCheck } from "lucide-react"
 import { Link } from "react-router-dom"
 
@@ -11,7 +10,7 @@ export default function MainServices() {
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {/* IT Services Card */}
-          <div className="group relative bg-gradient-to-br from-blue-900 to-gray-900 border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
+          <div className="group relative  border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="p-6 relative z-10 flex-grow">
               <div className="flex justify-center mb-6">
@@ -31,7 +30,7 @@ export default function MainServices() {
                   {["Custom Software Development", "Web & Mobile Apps", "Cloud Solutions", "Digital Transformation"].map((service, index) => (
                     <span 
                       key={index}
-                      className="text-sm bg-blue-900/50 text-blue-100 px-3 py-2 rounded-lg text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
+                      className="text-sm  text-blue-100 px-3 py-2 rounded-lg text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
                     >
                       {service}
                     </span>
@@ -39,10 +38,10 @@ export default function MainServices() {
                 </div>
               </div>
             </div>
-            <div className="p-6 bg-gradient-to-r from-blue-900/80 to-cyan-800/80 group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
+            <div className="p-6  group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
               <Link 
                 to="/itservices" 
-                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-6 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
+                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-2 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
               >
                 Explore Services
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
@@ -53,7 +52,7 @@ export default function MainServices() {
           </div>
 
           {/* IT Training Card - Already Enhanced */}
-          <div className="group relative bg-gradient-to-br from-blue-900 to-gray-900 border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
+          <div className="group relative  border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="p-6 relative z-10 flex-grow">
               <div className="flex justify-center mb-6">
@@ -69,11 +68,11 @@ export default function MainServices() {
               </p>
               <div className="space-y-3">
                 <h4 className="font-semibold text-blue-300 text-center">Key Programs:</h4>
-                <div className="grid grid-cols-2 gap-2">
-                  {["Web Dev", "Cloud", "AI/ML", "Cybersecurity", "Data Science", "DevOps", "UI/UX", "Digital Marketing"].map((service, index) => (
+                <div className="grid grid-cols-1 gap-2">
+                  {["Web Dev", "Cloud", "AI/ML", "Cybersecurity", "DevOps", "UI/UX", "Digital Marketing"].map((service, index) => (
                     <span 
                       key={index}
-                      className="text-sm bg-blue-900/50 text-blue-100 px-3 py-1.5 rounded-full text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
+                      className="text-sm  text-blue-100 px-3 py-1.5 rounded-lg text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
                     >
                       {service}
                     </span>
@@ -81,12 +80,12 @@ export default function MainServices() {
                 </div>
               </div>
             </div>
-            <div className="p-6 bg-gradient-to-r from-blue-900/80 to-blue-800/80 group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
+            <div className="p-6 group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
               <Link 
                 to="/training" 
-                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-6 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
+                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-2 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
               >
-                Explore Programs
+                Explore Services
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
@@ -95,7 +94,7 @@ export default function MainServices() {
           </div>
 
           {/* IT Recruitment Card */}
-          <div className="group relative bg-gradient-to-br from-blue-900 to-gray-900 border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
+          <div className="group relative border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="p-6 relative z-10 flex-grow">
               <div className="flex justify-center mb-6">
@@ -115,7 +114,7 @@ export default function MainServices() {
                   {["Permanent Hiring", "Contract Staffing", "Technical Assessment", "Talent Mapping", "RPO Solutions"].map((service, index) => (
                     <span 
                       key={index}
-                      className="text-sm bg-blue-900/50 text-blue-100 px-3 py-1.5 rounded-lg text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
+                      className="text-sm text-blue-100 px-3 py-1.5 rounded-lg text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
                     >
                       {service}
                     </span>
@@ -123,12 +122,12 @@ export default function MainServices() {
                 </div>
               </div>
             </div>
-            <div className="p-6 bg-gradient-to-r from-blue-900/80 to-cyan-800/80 group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
+            <div className="p-6 group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
               <Link 
                 to="/itrecruitment" 
-                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-6 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
+                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-2 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
               >
-                Find Talent
+                Explore Services
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
@@ -137,7 +136,7 @@ export default function MainServices() {
           </div>
 
           {/* ERP Solutions Card */}
-          <div className="group relative bg-gradient-to-br from-blue-900 to-gray-900 border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
+          <div className="group relative border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="p-6 relative z-10 flex-grow">
               <div className="flex justify-center mb-6">
@@ -157,7 +156,7 @@ export default function MainServices() {
                   {["ERP Implementation", "Business Process Automation", "Data Migration", "Custom Module Development", "Ongoing Support & Training"].map((service, index) => (
                     <span 
                       key={index}
-                      className="text-sm bg-blue-900/50 text-blue-100 px-3 py-1.5 rounded-lg text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
+                      className="text-sm text-blue-100 px-3 py-1.5 rounded-lg text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
                     >
                       {service}
                     </span>
@@ -165,14 +164,14 @@ export default function MainServices() {
                 </div>
               </div>
             </div>
-            <div className="p-6 bg-gradient-to-r from-blue-900/80 to-cyan-800/80 group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
+            <div className="p-6 group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
               <a 
                 href="https://boostnowai.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-6 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
+                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-2 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
               >
-                Discover More
+                Explore Services
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
@@ -181,7 +180,7 @@ export default function MainServices() {
           </div>
 
           {/* DaaS (Department as a Service) Card */}
-          <div className="group relative bg-gradient-to-br from-blue-900 to-gray-900 border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
+          <div className="group relative border-2 border-blue-500 rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20 h-full flex flex-col">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="p-6 relative z-10 flex-grow">
               <div className="flex justify-center mb-6">
@@ -203,7 +202,7 @@ export default function MainServices() {
                   {["IT Department as a Service", "HR as a Service", "Finance as a Service", "Marketing as a Service", "24/7 Support"].map((service, index) => (
                     <span 
                       key={index}
-                      className="text-sm bg-blue-900/50 text-blue-100 px-3 py-1.5 rounded-lg text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
+                      className="text-sm text-blue-100 px-3 py-1.5 rounded-lg text-center border border-blue-800 group-hover:border-blue-500 transition-all duration-300"
                     >
                       {service}
                     </span>
@@ -211,12 +210,12 @@ export default function MainServices() {
                 </div>
               </div>
             </div>
-            <div className="p-6 bg-gradient-to-r from-blue-900/80 to-cyan-800/80 group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
+            <div className="p-6 group-hover:from-blue-800/90 group-hover:to-cyan-700/90 transition-all duration-500">
               <Link 
                 to="/services/daas" 
-                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-6 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
+                className="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium py-3 px-2 rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40"
               >
-                Learn More
+                Explore Services
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
@@ -229,5 +228,4 @@ export default function MainServices() {
   )
 }
 
-// ServiceCard component has been removed as we're now using inline card components
-
+// ServiceCard component has been removed as we're now using inline card components

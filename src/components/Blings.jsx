@@ -61,9 +61,27 @@ export default function HowItWorks() {
       </h1>
 
       {/* Desktop Layout */}
-      <div className="hidden md:flex relative w-full max-w-6xl mx-auto px-4 z-10 items-center justify-center">
+      <div className="hidden md:flex relative w-full max-w-6xl mx-auto px-4 z-10 items-center justify-center min-h-[550px]">
+        {/* SVG Path for connecting lines */}
+        <svg
+          className="absolute inset-0 w-full h-full"
+          viewBox="0 0 1200 600"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          {/* UPDATED PATH: The coordinates now align with the circle centers */}
+          <path
+            d="M 150 150 A 450 100 0 1 1 1050 150 A 450 350 0 1 1 150 150 Z"
+            fill="none"
+            stroke="#00ffff"
+            strokeWidth="2.5"
+            style={{
+              filter: "drop-shadow(0 0 10px #00ffff) drop-shadow(0 0 20px #00ffff)",
+            }}
+          />
+        </svg>
+
         {/* Central Rectangle */}
-        <div className="relative">
+        <div className="relative z-10">
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-blue-500/30 to-cyan-500/30 rounded-lg blur-xl scale-110 animate-pulse"></div>
 
           <div className="relative bg-gradient-to-br from-gray-900/80 via-black/90 to-gray-900/80 border-2 border-cyan-400 rounded-lg p-6 sm:p-10 md:p-12 w-full max-w-md md:max-w-lg lg:max-w-xl min-h-[250px] flex items-center justify-center backdrop-blur-sm shadow-2xl shadow-cyan-500/30">
@@ -79,7 +97,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Circles Layout */}
-        <div className="absolute inset-0 flex flex-col justify-between items-center">
+        <div className="absolute inset-0 flex flex-col justify-between items-center z-10">
           <div className="flex justify-between w-full px-10">
             {/* Step 1 */}
             <CircleStep

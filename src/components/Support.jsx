@@ -85,86 +85,31 @@ export default function Support({ id }) {
     <section id={id} className="max-w-7xl mx-auto p-8 text-white rounded-2xl mt-6">
       <h2 className="text-4xl font-bold text-center text-white mb-10">Help Center</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-        {/* Get Support */}
-        {/* <div
-          className="flex flex-col items-center bg-white/70 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-blue-100 cursor-pointer"
-        >
-          <img src={support} alt="Get Support" className="w-40 h-40 mb-4 transition-transform duration-300 transform hover:scale-110" />
-          <h3 className="text-xl font-semibold text-gray-800 mb-2 transition-all duration-300 transform hover:text-blue-600">Get Support &rarr;</h3>
-          <p className="text-gray-600 text-center transition-all duration-300 transform hover:text-gray-800">Reach out to our team for assistance.</p>
-        </div> */}
 
         {/* Appointment Popup Trigger */}
-        <div onClick={() => setShowPopup(true)} className="flex flex-col items-center justify-center bg-white/70 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-blue-100 cursor-pointer">
-          {/* <img src={appointment} alt="Appointment" className="w-40 h-40 mb-4 transition-transform duration-300 transform hover:scale-110" /> */}
-          <img src="/icons8-tear-off-calendar.gif" alt="Appointment" className="w-36 h-32 mt-4 rounded-lg transition-transform duration-300 transform hover:scale-110" />
-          <div className="flex justify-center items-center bg-transparent w-full h-full">
-      {/* <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="100"
-        height="100"
-        viewBox="0 0 100 100"
-        className="w-24 h-24"
-      >
-        <rect width="100" height="100" fill="white" />
-        <g fill="none" stroke="black" strokeWidth="4">
-          <rect
-            x="20"
-            y="10"
-            width={isAnimated ? '60' : '0'}
-            height="70"
-            rx="8"
-            ry="8"
-            className="transition-all duration-1000 ease-in-out"
-          />
-          <line
-            x1="20"
-            y1="30"
-            x2={isAnimated ? '80' : '20'}
-            y2="30"
-            className="transition-all duration-1000 ease-in-out delay-200"
-          />
-          <line
-            x1="40"
-            y1="50"
-            x2={isAnimated ? '50' : '40'}
-            y2={isAnimated ? '60' : '50'}
-            className="transition-all duration-1000 ease-in-out delay-400"
-          />
-          <line
-            x1="50"
-            y1="60"
-            x2={isAnimated ? '70' : '50'}
-            y2={isAnimated ? '40' : '60'}
-            className="transition-all duration-1000 ease-in-out delay-600"
-          />
-        </g>
-      </svg> */}
-    </div>
-
-
-          <h3 className="text-xl font-semibold text-gray-800 mb-2 transition-all duration-300 transform hover:text-blue-600">Appointment &rarr;</h3>
+        <div onClick={() => setShowPopup(true)} className="flex flex-col items-center bg-[#fffefe] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+          {/* Fixed-height container for the image */}
+          <div className="flex items-center justify-center w-full h-64">
+            <img src="/icons8-tear-off-calendar.gif" alt="Appointment" className="max-w-full max-h-full rounded-lg transition-transform duration-300 transform hover:scale-110" />
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800 mt-4 mb-2 transition-all duration-300 transform hover:text-blue-600">Appointment &rarr;</h3>
           <p className="text-gray-600 text-center transition-all duration-300 transform hover:text-gray-800">Schedule an appointment with our experts.</p>
         </div>
 
-        {/* Contacts */}
-        {/* <Link to="/contact" className="flex flex-col items-center bg-white/70 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-blue-100">
-          <img src={call} alt="Contacts" className="w-40 h-40 mb-4 transition-transform duration-300 transform hover:scale-110" />
-          <h3 className="text-xl font-semibold text-gray-800 mb-2 transition-all duration-300 transform hover:text-blue-600">Contacts &rarr;</h3>
-          <p className="text-gray-600 text-center transition-all duration-300 transform hover:text-gray-800">Connect with us through various channels.</p>
-        </Link> */}
-
         {/* FAQ */}
-        <Link to="/faq" className="flex flex-col items-center bg-white/70 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-blue-100">
-          <img src={faq} alt="FAQ" className="w-40 h-40 mb-4 transition-transform duration-300 transform hover:scale-110" />
-          <h3 className="text-xl font-semibold text-gray-800 mb-2 transition-all duration-300 transform hover:text-blue-600">FAQ &rarr;</h3>
+        <Link to="/faq" className="flex flex-col items-center bg-[#fffefe] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+           {/* Fixed-height container for the image */}
+          <div className="flex items-center justify-center w-full h-64">
+            <img src={faq} alt="FAQ" className="w-40 h-40 transition-transform duration-300 transform hover:scale-110" />
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800 mt-4 mb-2 transition-all duration-300 transform hover:text-blue-600">FAQ &rarr;</h3>
           <p className="text-gray-600 text-center transition-all duration-300 transform hover:text-gray-800">Find answers to frequently asked questions.</p>
         </Link>
       </div>
 
       {/* Popup Form */}
       {showPopup && (
-     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-start justify-center z-50 p-4 pt-[150px] md:items-start md:pt-[100px] overflow-y-auto md:overflow-hidden">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-start justify-center z-50 p-4 pt-[90px] md:items-center md:pt-0 overflow-y-auto md:overflow-hidden">
           <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto relative my-4 md:my-0">
             {/* Main form container with glass morphism effect */}
             <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] md:max-h-[90vh]">

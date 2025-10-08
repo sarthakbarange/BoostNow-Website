@@ -74,9 +74,8 @@ export default function Contactpop_up({ showPopup, onClose }) {
   };
 
   return (
-    // UPDATED: Added pt-16 (padding-top: 4rem) for mobile spacing
-    // Also added min-h-screen to ensure the container spans the viewport
-    <div className="fixed inset-0 z-50 flex items-start justify-center min-h-screen p-4 pt-16 sm:p-4 sm:pt-24 pb-4 sm:pb-16">
+    // Mobile-first approach: use full viewport with minimal padding
+    <div className="fixed inset-0 z-50 flex items-start justify-center p-1 pt-20 sm:items-center sm:p-20">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
@@ -85,7 +84,7 @@ export default function Contactpop_up({ showPopup, onClose }) {
       />
 
       {/* Glassmorphism Popup */}
-      {/* Container is set to h-[90vh] to take up most of the screen height on mobile */}
+      {/* Mobile: fit content with max height, Desktop: auto height */}
       <section
         role="dialog"
         aria-modal="true"
@@ -93,7 +92,7 @@ export default function Contactpop_up({ showPopup, onClose }) {
           relative w-full max-w-lg mx-auto
           bg-gradient-to-br from-white/10 via-white/5 to-transparent
           backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden flex flex-col
-          h-[90vh] sm:h-auto
+          max-h-[96vh] sm:max-h-[90vh] h-fit
         "
       >
         {/* Close Button */}
@@ -106,10 +105,10 @@ export default function Contactpop_up({ showPopup, onClose }) {
           ✕
         </button>
 
-        {/* Header (will remain non-scrolling) */}
-        <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-3 text-center border-b border-white/10 shrink-0">
-          <div className="w-12 h-12 mx-auto mb-2 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
-            <div className="w-8 h-8">
+        {/* Header (compact for mobile) */}
+        <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-1.5 sm:p-3 text-center border-b border-white/10 shrink-0">
+          <div className="w-8 h-8 sm:w-12 sm:h-12 mx-auto mb-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+            <div className="w-5 h-5 sm:w-8 sm:h-8">
               <DotLottieReact
                 src="https://lottie.host/eb1810d4-9f06-4c4d-9b01-e4ab15735e7b/YkANIylCA9.lottie"
                 loop
@@ -117,7 +116,7 @@ export default function Contactpop_up({ showPopup, onClose }) {
               />
             </div>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
+          <h2 className="text-base sm:text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
             Contact Us
           </h2>
           <p className="text-blue-200/80 text-xs sm:text-sm">
@@ -125,12 +124,11 @@ export default function Contactpop_up({ showPopup, onClose }) {
           </p>
         </div>
 
-        {/* Form - SCROLLABLE (mobile only) */}
-        {/* flex-1 allows this section to fill the remaining vertical space */}
-        <div className="p-3 sm:p-6 flex-1 overflow-y-auto sm:overflow-visible">
-          <form className="space-y-4" onSubmit={handleSubmit}>
+        {/* Form - Optimized for mobile */}
+        <div className="p-1.5 sm:p-6 flex-1 overflow-y-auto min-h-0">
+          <form className="space-y-2 sm:space-y-4" onSubmit={handleSubmit}>
             {/* Personal Info */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               <div>
                 <label className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
                   First Name
@@ -142,7 +140,7 @@ export default function Contactpop_up({ showPopup, onClose }) {
                   value={formData.firstName}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20"
+                  className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-1.5 sm:p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20"
                 />
               </div>
               <div>
@@ -156,13 +154,13 @@ export default function Contactpop_up({ showPopup, onClose }) {
                   value={formData.lastName}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20"
+                  className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-1.5 sm:p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20"
                 />
               </div>
             </div>
 
             {/* Company + Email */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               <div>
                 <label className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
                   Company Name
@@ -174,7 +172,7 @@ export default function Contactpop_up({ showPopup, onClose }) {
                   value={formData.companyName}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20"
+                  className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-1.5 sm:p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20"
                 />
               </div>
               <div>
@@ -188,7 +186,7 @@ export default function Contactpop_up({ showPopup, onClose }) {
                   value={formData.workEmail}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20"
+                  className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-1.5 sm:p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20"
                 />
               </div>
             </div>
@@ -232,17 +230,16 @@ export default function Contactpop_up({ showPopup, onClose }) {
                 placeholder="Tell us about your project..."
                 value={formData.message}
                 onChange={handleChange}
-                rows="3"
-                required
-                className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 resize-none"
+                rows="2"
+                className="w-full rounded-lg bg-white/10 backdrop-blur-sm p-1.5 sm:p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 resize-none"
               />
             </div>
 
             {/* Submit */}
-            <div className="pt-2">
+            <div className="pt-0.5 sm:pt-2">
               <button
                 type="submit"
-                className="group relative w-full bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white py-2.5 rounded-lg text-sm font-bold hover:from-blue-700 hover:via-blue-600 hover:to-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-300/50 transform hover:scale-[1.02] transition-all duration-300 shadow-xl overflow-hidden"
+                className="group relative w-full bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white py-1.5 sm:py-2.5 rounded-lg text-sm font-bold hover:from-blue-700 hover:via-blue-600 hover:to-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-300/50 transform hover:scale-[1.02] transition-all duration-300 shadow-xl overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 <span className="relative flex items-center justify-center gap-2">
