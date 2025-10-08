@@ -871,16 +871,6 @@ const Careers = () => {
               ))}
             </div>
 
-            {/* Close button */}
-            <motion.button
-              onClick={() => setFormOpen(false)}
-              className="absolute top-4 right-4 w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 z-10"
-              whileHover={{ scale: 1.1, rotate: 90 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              ✕
-            </motion.button>
-
             <div className="relative z-10 p-6">
               {formSubmitted ? (
                 <motion.div 
