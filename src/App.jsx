@@ -44,13 +44,33 @@ const App = () => {
     return () => document.removeEventListener("mousemove", onMove)
   }, [])
 
+  // Dynamically compute safe top offset based on actual navbar height + its top offset
+  useEffect(() => {
+    const updateNavbarSafeTop = () => {
+      const header = document.getElementById('site-navbar')
+      if (!header) return
+      const rect = header.getBoundingClientRect()
+      // rect.top is usually 16px due to top-4, add height and a small margin
+      const safe = Math.ceil(rect.top + rect.height + 8) // +8px breathing room
+      document.documentElement.style.setProperty('--navbar-safe-top', `${safe}px`)
+    }
+    updateNavbarSafeTop()
+    window.addEventListener('resize', updateNavbarSafeTop)
+    // Some fonts/images may shift layout after load
+    window.addEventListener('load', updateNavbarSafeTop)
+    return () => {
+      window.removeEventListener('resize', updateNavbarSafeTop)
+      window.removeEventListener('load', updateNavbarSafeTop)
+    }
+  }, [])
+
   return (
     <>
       <Router>
         {/* Global gradient blob (cursor-follow) */}
         <div className="blob" ref={blobRef} />
         <Navbar />
-        <div className="bg-black" style={{ minHeight: "100vh" }}>
+        <div className="main-content bg-black" style={{ minHeight: "100vh" }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

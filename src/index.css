@@ -3,6 +3,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Reserve space for fixed navbar and make anchor scroll offset safe */
+:root {
+  /* Adjust if navbar height changes */
+  --navbar-safe-top: 96px;
+}
+
+/* Content wrapper below fixed header */
+.main-content {
+  padding-top: var(--navbar-safe-top);
+  /* When using scrollTo/scrollIntoView on the page */
+  scroll-padding-top: var(--navbar-safe-top);
+}
+
+/* Any in-page anchors should respect the fixed header */
+[id] {
+  scroll-margin-top: var(--navbar-safe-top);
+}
+
 /* Section-scoped blob (for specific sections like Careers -> Current Openings) */
 .blob-local {
   display: flex;

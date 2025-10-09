@@ -28,7 +28,7 @@ const Contact = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* other meta tags */}
       </Helmet>
-      <div className="relative z-10 w-full min-h-screen bg-black overflow-hidden">
+      <div className="relative z-10 w-full min-h-screen bg-black">
         <Form />
         <Support id="support" />
         <Info id="info" />

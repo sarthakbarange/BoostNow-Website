@@ -62,7 +62,7 @@ export default function Navbar() {
   return (
     <div>
       {/* Centered glass-style navbar */}
-      <header className="fixed inset-x-0 top-4 z-50 flex justify-center pointer-events-auto">
+      <header id="site-navbar" className="fixed inset-x-0 top-4 z-50 flex justify-center pointer-events-auto">
         <nav
           aria-label="Global"
           className={`flex items-center justify-between px-6 py-3 rounded-2xl
@@ -183,7 +183,15 @@ export default function Navbar() {
           {/* Desktop "Get Quote" button */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <button
-              onClick={() => setIsFormOpen(true)}
+              onClick={() => {
+                const header = document.getElementById('site-navbar')
+                if (header) {
+                  const rect = header.getBoundingClientRect()
+                  const safe = Math.ceil(rect.top + rect.height + 8)
+                  document.documentElement.style.setProperty('--navbar-safe-top', `${safe}px`)
+                }
+                setIsFormOpen(true)
+              }}
               className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold shadow-[0_0_20px_rgba(0,200,255,0.8)] hover:scale-105 transition"
             >
               Get Quote →
@@ -277,6 +285,12 @@ export default function Navbar() {
             <div className="mt-4">
               <button
                 onClick={() => {
+                  const header = document.getElementById('site-navbar')
+                  if (header) {
+                    const rect = header.getBoundingClientRect()
+                    const safe = Math.ceil(rect.top + rect.height + 8)
+                    document.documentElement.style.setProperty('--navbar-safe-top', `${safe}px`)
+                  }
                   setIsFormOpen(true)
                   setMobileMenuOpen(false)
                 }}
@@ -291,8 +305,14 @@ export default function Navbar() {
 
       {/* Get in Touch Form Modal */}
       {isFormOpen && !formSubmitted && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center" onClick={() => setIsFormOpen(false)}>
-          <div className="bg-white rounded-lg p-6 w-11/12 max-w-md" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-start justify-center pt-[var(--navbar-safe-top)] sm:pt-[calc(var(--navbar-safe-top)+16px)] overflow-y-auto"
+          onClick={() => setIsFormOpen(false)}
+        >
+          <div
+            className="bg-white rounded-lg p-6 w-11/12 max-w-md mx-4 my-6 sm:my-8 max-h-[calc(100vh-var(--navbar-safe-top)-32px)] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-semibold">Get Quote</h3>
               <button className="text-gray-600" onClick={() => setIsFormOpen(false)} aria-label="Close form">X</button>
@@ -343,8 +363,8 @@ export default function Navbar() {
 
       {/* Success Message */}
       {formSubmitted && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white rounded-lg p-6 w-11/12 max-w-md text-center">
+        <div className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-start justify-center pt-[var(--navbar-safe-top)] sm:pt-[calc(var(--navbar-safe-top)+16px)] overflow-y-auto">
+          <div className="bg-white rounded-lg p-6 w-11/12 max-w-md text-center mx-4 my-6 sm:my-8">
             <h3 className="text-xl font-semibold">Thank You!</h3>
             <p className="mt-2">Your message has been sent. We will get back to you soon.</p>
             <button onClick={() => setFormSubmitted(false)} className="mt-4 bg-blue-600 text-white py-2 rounded w-full">Close</button>

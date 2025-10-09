@@ -112,20 +112,16 @@ export default function Form() {
           workEmail: "",
           phoneNumber: "",
           message: "",
-        })
+        });
+        setSubmitted(true);
         // alert("Data successfully sent to Google Sheets")
     } catch (error) {
         console.error("Error:", error);
     }
-};
+  };
   return (
-    <section className="pt-[100px] pb-2 relative z-10 min-h-screen flex items-start justify-center overflow-x-hidden">
+    <section className="pt-6 sm:pt-8 pb-2 relative z-10 min-h-screen flex items-start justify-center overflow-x-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-4 sm:left-10 w-24 h-24 sm:w-32 sm:h-32 bg-blue-500/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-4 sm:right-10 w-32 h-32 sm:w-40 sm:h-40 bg-blue-400/10 rounded-full blur-xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
-      </div>
       
       <div className="max-w-2xl w-full px-4 sm:px-6 md:px-8 mx-auto relative">
         {/* Main form container with glass morphism effect */}
