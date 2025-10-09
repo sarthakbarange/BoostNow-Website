@@ -113,171 +113,219 @@ export default function Form() {
           phoneNumber: "",
           message: "",
         })
-        // console.log("dialCode"+country.dialCode)
         // alert("Data successfully sent to Google Sheets")
     } catch (error) {
         console.error("Error:", error);
     }
 };
   return (
-    <section className="my-8 relative z-10">
-      <div className="md:max-w-[60vw] w-[95vw] mx-auto p-6 bg-white/20 backdrop-blur-lg shadow-lg rounded-lg border-2 border-blue-500  ">
-        <div className="text-center">
-          <DotLottieReact
-            src="https://lottie.host/eb1810d4-9f06-4c4d-9b01-e4ab15735e7b/YkANIylCA9.lottie"
-            loop
-            autoplay
-          />
+    <section className="pt-[100px] pb-2 relative z-10 min-h-screen flex items-start justify-center overflow-x-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-4 sm:left-10 w-24 h-24 sm:w-32 sm:h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-4 sm:right-10 w-32 h-32 sm:w-40 sm:h-40 bg-blue-400/10 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-2xl w-full px-4 sm:px-6 md:px-8 mx-auto relative">
+        {/* Main form container with glass morphism effect */}
+        <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden flex flex-col">
+          {/* Header section with gradient background */}
+          <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-2 sm:p-3 text-center border-b border-white/10 flex-shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 sm:w-10 sm:h-10">
+                <DotLottieReact
+                  src="https://lottie.host/eb1810d4-9f06-4c4d-9b01-e4ab15735e7b/YkANIylCA9.lottie"
+                  loop
+                  autoplay
+                />
+              </div>
+            </div>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent mb-1">
+              Get In Touch
+            </h2>
+            <p className="text-blue-200/80 text-xs hidden sm:block">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+          </div>
+
+          {/* Form section */}
+          <div className="p-3 sm:p-4 overflow-hidden">
+            <form className="space-y-3 w-full" onSubmit={handleSubmit}>
+              {/* Personal Information Section */}
+              <div className="space-y-2">
+                <h3 className="text-xs sm:text-sm font-semibold text-blue-200 flex items-center gap-2">
+                  <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                  Personal Information
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                  <div className="group">
+                    <label htmlFor="firstName" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                      First Name 
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="firstName"
+                        name="firstName"
+                        type="text"
+                        placeholder="Enter first name"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                      />
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                    </div>
+                  </div>
+                  <div className="group">
+                    <label htmlFor="lastName" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                      Last Name 
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="lastName"
+                        name="lastName"
+                        type="text"
+                        placeholder="Enter last name"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                      />
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Company Information Section */}
+              <div className="space-y-2">
+                <h3 className="text-xs sm:text-sm font-semibold text-blue-200 flex items-center gap-2">
+                  <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                  Company Details
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                  <div className="group">
+                    <label htmlFor="companyName" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                      Company Name 
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="companyName"
+                        name="companyName"
+                        type="text"
+                        placeholder="Your Company"
+                        value={formData.companyName}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                      />
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                    </div>
+                  </div>
+                  <div className="group">
+                    <label htmlFor="workEmail" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                      Work Email 
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="workEmail"
+                        name="workEmail"
+                        type="email"
+                        placeholder="company.com"
+                        value={formData.workEmail}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                      />
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Information Section */}
+              <div className="space-y-2">
+                <h3 className="text-xs sm:text-sm font-semibold text-blue-200 flex items-center gap-2">
+                  <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                  Contact Information
+                </h3>
+                <div className="group w-full">
+                  <label htmlFor="phoneNumber" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                    Phone Number 
+                  </label>
+                  <div className="flex rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm shadow-inner w-full">
+                    <select
+                      value={country.dialCode}
+                      onChange={handleCountryChange}
+                      className="bg-white/20 border-0 text-white text-xs p-2 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/30 transition-all duration-300"
+                    >
+                      {countryData.map((c) => (
+                        <option key={c.code} value={c.dialCode} className="bg-gray-800 text-white">
+                          {`${c.flag} ${c.dialCode}`}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      id="phoneNumber"
+                      name="phoneNumber"
+                      type="tel"
+                      placeholder="Your phone number"
+                      value={formData.phoneNumber}
+                      onChange={handleChange}
+                      required
+                      className="flex-1 border-0 bg-transparent p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/10 transition-all duration-300"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Message Section */}
+              <div className="space-y-2">
+                <h3 className="text-xs sm:text-sm font-semibold text-blue-200 flex items-center gap-2">
+                  <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                  Your Message
+                </h3>
+                <div className="group">
+                  <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-blue-200/90 mb-1">
+                    Tell us about your project 
+                  </label>
+                  <div className="relative">
+                    <textarea
+                      id="message"
+                      name="message"
+                      placeholder="Describe your project requirements, goals, or any questions you have..."
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows="1"
+                      required
+                      className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 resize-none shadow-inner"
+                    />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  className="group relative w-full bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white py-2.5 rounded-lg text-sm font-bold hover:from-blue-700 hover:via-blue-600 hover:to-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-300/50 transform hover:scale-[1.02] transition-all duration-300 shadow-xl overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <span className="relative flex items-center justify-center gap-2">
+                    Send Message
+                    <div className="w-4 h-4">
+                      <DotLottieReact
+                        src="https://lottie.host/1f4e7a70-5f9d-480c-a44c-cf3a5951c6a3/LXEk7kMPg2.lottie"
+                        loop
+                        autoplay
+                      />
+                    </div>
+                  </span>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <h2 className="text-4xl font-bold text-center text-white mb-6">
-          Contact Us
-        </h2>
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label
-                htmlFor="firstName"
-                className="block text-lg font-bold text-blue-300"
-              >
-                First Name
-              </label>
-              <input
-                id="firstName"
-                name="firstName"
-                type="text"
-                placeholder="Enter Your Name"
-                value={formData.firstName}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full rounded-lg border-blue-300 focus:ring-blue-500 focus:border-blue-500 p-2 text-lg bg-blue-50 hover:bg-white hover:shadow-lg"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="lastName"
-                className="block text-lg font-bold text-blue-300"
-              >
-                Last Name
-              </label>
-              <input
-                id="lastName"
-                name="lastName"
-                type="text"
-                placeholder="Enter Your LastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full rounded-lg border-blue-300 focus:ring-blue-500 focus:border-blue-500 p-2 text-lg bg-blue-50 hover:bg-white hover:shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label
-              htmlFor="companyName"
-              className="block text-lg font-bold text-blue-300"
-            >
-              Company Name
-            </label>
-            <input
-              id="companyName"
-              name="companyName"
-              type="text"
-              placeholder="Enter Your Company Name"
-              value={formData.companyName}
-              onChange={handleChange}
-              required
-              className="mt-1 block w-full rounded-lg border-blue-300 focus:ring-blue-500 focus:border-blue-500 p-2 text-lg bg-blue-50 hover:bg-white hover:shadow-lg"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="workEmail"
-              className="block text-lg font-bold text-blue-300"
-            >
-              Work Email
-            </label>
-            <input
-              id="workEmail"
-              name="workEmail"
-              type="email"
-              placeholder="Enter Your Email"
-              value={formData.workEmail}
-              onChange={handleChange}
-              required
-              className="mt-1 block w-full rounded-lg border-blue-300 focus:ring-blue-500 focus:border-blue-500 p-2 text-lg bg-blue-50 hover:bg-white hover:shadow-lg"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="phoneNumber"
-              className="block text-lg font-bold text-blue-300"
-            >
-              Phone Number
-            </label>
-            <div className="flex">
-              <select
-                value={country.dialCode}
-                onChange={handleCountryChange}
-                className="rounded-l-lg border-blue-300 focus:ring-blue-500 focus:border-blue-500 text-lg p-2 bg-blue-50 hover:bg-white hover:shadow-lg"
-              >
-                {countryData.map((c) => (
-                  <option key={c.code} value={c.dialCode}>
-                    {`${c.flag} ${c.dialCode}`}
-                  </option>
-                ))}
-              </select>
-              <input
-                id="phoneNumber"
-                name="phoneNumber"
-                type="tel"
-                placeholder="Enter Your Phone Number"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                required
-                className=" block w-full rounded-r-lg border-blue-300 focus:ring-blue-500 focus:border-blue-500 p-2 text-lg bg-blue-50 hover:bg-white hover:shadow-lg"
-                // className="flex-1 rounded-r-lg border-blue-300 focus:ring-blue-500 focus:border-blue-500 p-2 text-lg bg-blue-50 hover:bg-white hover:shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-lg font-bold text-blue-300"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Write your message here..."
-              value={formData.message}
-              onChange={handleChange}
-              rows="4"
-              required
-              className="mt-1 block w-full rounded-lg border-blue-300 focus:ring-blue-500 focus:border-blue-500 p-2 text-lg bg-blue-50 hover:bg-white hover:shadow-lg"
-            />
-          </div>
-
-          <div className="relative">
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-sky-500 via-gray-500 to-blue-500 text-white py-2 rounded-lg text-lg font-bold hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-purple-300"
-            >
-              Send
-            </button>
-            <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
-              <DotLottieReact
-                src="https://lottie.host/1f4e7a70-5f9d-480c-a44c-cf3a5951c6a3/LXEk7kMPg2.lottie"
-                loop
-                autoplay
-              />
-            </div>
-          </div>
-        </form>
       </div>
     </section>
   );

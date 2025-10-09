@@ -1,18 +1,20 @@
-"use client"
 
-import { useRef } from "react"
+"use client"
+import { useEffect, useRef } from "react"
 import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
-import CustomCursor from "./components/CustomCursor"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Services from "./pages/Services"
 import Contact from "./pages/Contact"
 import Careers from "./pages/Careers"
 import FAQ from "./pages/FAQ"
+// import ITTraining from "./pages/ITTraining";
 import Traning from "./pages/Training"
+// import * as THREE from "three"
+// import WAVES from "vanta/dist/vanta.waves.min"
 import Solution from "./pages/ITServices"
 import Startups from "./pages/ITServices/Startups"
 import SmallBusiness from "./pages/ITServices/SmallBusinesses"
@@ -20,19 +22,36 @@ import ITRecruitmentServices from "./pages/ITRecruitmentServices"
 import ProjectT from "./components/Testimonial/ProjectT/ProjectT"
 
 const App = () => {
-  const vantaRef = useRef(null)
+  const blobRef = useRef(null)
+
+  useEffect(() => {
+    const el = blobRef.current
+    if (!el) return
+
+    const onMove = (e) => {
+      const x = e.clientX
+      const y = e.clientY
+      // Move the global blob
+      el.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`
+      // Also move any section-scoped blobs
+      const others = document.querySelectorAll('.blob-local')
+      others.forEach((node) => {
+        node.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`
+      })
+    }
+
+    document.addEventListener("mousemove", onMove)
+    return () => document.removeEventListener("mousemove", onMove)
+  }, [])
 
   return (
     <>
-      <CustomCursor />
       <Router>
+        {/* Global gradient blob (cursor-follow) */}
+        <div className="blob" ref={blobRef} />
         <Navbar />
-        <div
-          ref={vantaRef}
-          className="bg-black"
-          style={{ minHeight: "100vh", overflow: "hidden" }}
-        >
-        {/* <div className="bg-black"> */}          <Routes>
+        <div className="bg-black" style={{ minHeight: "100vh" }}>
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
@@ -40,9 +59,10 @@ const App = () => {
             <Route path="/careers" element={<Careers />} />
             <Route path="/project" element={<ProjectT />} />
             <Route path="/faq" element={<FAQ />} />
+            {/* <Route path="/it" element={<ITTraining />} /> */}
             <Route path="/services/itservices" element={<Solution />} />
-            <Route path="/services/training" element={<Traning />} />
-            <Route path="/services/itservices/startups" element={<Startups />} />
+            <Route path="/services/training" element={<Traning />} />            <Route path="/services/itservices/startups" element={<Startups />} />
+            {/* <Route path="/services/startups" element={<Startups />} /> */}
             <Route path="/services/itservices/smallbusiness" element={<SmallBusiness />} />
             <Route path="/itrecruitment" element={<ITRecruitmentServices />} />
             <Route path="/itservices" element={<Solution />} />
@@ -215,4 +235,4 @@ export default App
 // //   );
 // // };
 
-// // export default App;
+// // export default App;

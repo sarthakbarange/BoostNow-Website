@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Card, CardContent } from "../components/ui/Card";
 import { FaReact, FaNodeJs, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaWordpress } from "react-icons/fa";
@@ -21,7 +22,7 @@ const technologies = [
   { name: "Machine Learning", icon: <SiTensorflow className="text-orange-500 text-4xl" /> },
   { name: "Kubernetes", icon: <SiKubernetes className="text-blue-600 text-4xl" /> },
   { name: "Docker", icon: <SiDocker className="text-cyan-500 text-4xl" /> },
-  { name: "OpenAI", icon: <SiOpenai className="text-black text-4xl" /> },
+  { name: "OpenAI", icon: <SiOpenai className="text-white text-4xl" /> },
   { name: "WordPress", icon: <FaWordpress className="text-blue-700 text-4xl" /> },
 ];
 

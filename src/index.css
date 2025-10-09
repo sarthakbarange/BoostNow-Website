@@ -2,6 +2,31 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Section-scoped blob (for specific sections like Careers -> Current Openings) */
+.blob-local {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  border-radius: 100%;
+  background-image: radial-gradient(circle at center,
+    rgba(88, 183, 255, 0.60) 0%,
+    rgba(88, 183, 255, 0.45) 40%,
+    rgba(88, 183, 255, 0.20) 65%,
+    rgba(88, 183, 255, 0.08) 80%,
+    rgba(88, 183, 255, 0.00) 90%
+  );
+  filter: blur(220px);
+  transition: transform 450ms ease-out;
+  position: absolute; /* stays within section stacking context */
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% + 15px), -50%);
+  z-index: -1;
+}
 html, body {
   height: 100%;
   margin: 0;
@@ -42,4 +67,31 @@ html, body {
   font-weight: 400;
   font-style: normal;
 } */
+
+
+/* Gradient Blob for cursor-follow effect */
+.blob {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  border-radius: 100%;
+  /* Light blue glow with soft fade */
+  background-image: radial-gradient(circle at center,
+    rgba(88, 183, 255, 1.0) 0%,   /* #58B7FF - stronger core */
+    rgba(88, 183, 255, 0.9) 40%,
+    rgba(88, 183, 255, 0.55) 65%,
+    rgba(88, 183, 255, 0.15) 80%,
+    rgba(88, 183, 255, 0.0) 90%
+  );
+  filter: blur(180px);
+  transition: transform 450ms ease-out;
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% + 15px), -50%);
+  z-index: 0;
+}
 
