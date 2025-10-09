@@ -4,6 +4,7 @@ import { FaUserCheck, FaUserTie, FaHandshake, FaUsers, FaChartLine, FaBusinessTi
 import Technologies from "../components/Technology";
 import PopupForm from "../components/PopupForm";
 import { Helmet } from "react-helmet";
+import AnimatedServiceCards from "../components/AnimatedServiceCards";
 
 const services = [  {
     name: "Recruitment Services",
@@ -77,6 +78,7 @@ const ITRecruitmentServices = () => {
           We help you find reliable, job-ready professionals tailored to your business needs.
         </p>
         <Technologies />
+        <AnimatedServiceCards />
         <div className="grid my-16">
           <div
             className="bg-black border border-white md:rounded-[4rem] rounded-2xl shadow-md flex md:flex-row flex-col items-center justify-start p-6 transition-transform transform hover:scale-105"          >            <div className="flex-1">              <img
@@ -111,39 +113,107 @@ const ITRecruitmentServices = () => {
           </div>
         </div>
 
-        <div className="my-16">
-          <h3 className="text-3xl sm:text-4xl text-center font-bold text-white mb-8">
-            Why Choose Our Hiring Support?
-          </h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-black border border-white rounded-2xl p-6">
-              <div className="flex items-center gap-4 mb-4">
-                <FaUserCheck className="text-blue-500 text-3xl" />
-                <h4 className="text-xl font-semibold text-white">Fast & Verified Hiring</h4>
-              </div>
-              <p className="text-white/90">Cut down hiring time with our pre-verified candidate pool, saving you weeks in the recruitment process.</p>
+        <div className="py-20 px-4 relative overflow-hidden">
+          {/* Background gradient */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-blue-950/70"></div>
+          </div>
+          
+          <div className="max-w-7xl mx-auto relative">
+            <motion.h3 
+              className="text-4xl md:text-5xl font-bold text-center text-white mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              Why Choose Our <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Hiring Support?</span>
+            </motion.h3>
+            
+            <motion.p 
+              className="text-lg text-center text-blue-100/80 max-w-2xl mx-auto mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              We combine cutting-edge technology with human expertise to deliver exceptional recruitment solutions
+            </motion.p>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                {
+                  icon: <FaUserCheck className="text-3xl" />,
+                  title: "Fast & Verified Hiring",
+                  description: "Cut down hiring time with our pre-verified candidate pool, saving you weeks in the recruitment process.",
+                  color: "from-blue-600/80 to-blue-900/80"
+                },
+                {
+                  icon: <FaUsers className="text-3xl" />,
+                  title: "Pre-trained Talent Pool",
+                  description: "Access candidates already trained in relevant skills, reducing onboarding time and accelerating productivity.",
+                  color: "from-cyan-600/80 to-blue-800/80"
+                },
+                {
+                  icon: <FaHandshake className="text-3xl" />,
+                  title: "Flexible Hiring Models",
+                  description: "Choose from various engagement models including interns, freelancers, contractual, and full-time professionals.",
+                  color: "from-indigo-600/80 to-blue-900/80"
+                },
+                {
+                  icon: <FaChartLine className="text-3xl" />,
+                  title: "Industry-Relevant Skills",
+                  description: "Our candidates possess up-to-date skills that align with current industry standards and emerging technologies.",
+                  color: "from-blue-700/80 to-indigo-900/80"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  className={`relative overflow-hidden rounded-2xl p-8 h-full backdrop-blur-sm bg-gradient-to-br ${item.color} border border-white/10`}
+                  initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      delay: index * 0.1,
+                      duration: 0.6,
+                      ease: [0.25, 0.1, 0.25, 1]
+                    }
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  whileHover={{
+                    y: -5,
+                    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+                    transition: { 
+                      y: { type: 'spring', stiffness: 300, damping: 15 },
+                      boxShadow: { duration: 0.3 }
+                    }
+                  }}
+                >
+                  <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-blue-400/5"></div>
+                  
+                  <div className="text-blue-200 mb-6">
+                    {item.icon}
+                  </div>
+                  
+                  <h4 className="text-2xl font-bold text-white mb-4 relative z-10">
+                    {item.title}
+                  </h4>
+                  
+                  <p className="text-blue-100/90 relative z-10">
+                    {item.description}
+                  </p>
+                  
+                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-white/5 rounded-tl-full"></div>
+                </motion.div>
+              ))}
             </div>
-            <div className="bg-black border border-white rounded-2xl p-6">
-              <div className="flex items-center gap-4 mb-4">
-                <FaUsers className="text-blue-500 text-3xl" />
-                <h4 className="text-xl font-semibold text-white">Pre-trained Talent Pool</h4>
-              </div>
-              <p className="text-white/90">Access candidates already trained in relevant skills, reducing onboarding time and accelerating productivity.</p>
-            </div>
-            <div className="bg-black border border-white rounded-2xl p-6">
-              <div className="flex items-center gap-4 mb-4">
-                <FaHandshake className="text-blue-500 text-3xl" />
-                <h4 className="text-xl font-semibold text-white">Flexible Hiring Models</h4>
-              </div>
-              <p className="text-white/90">Choose from various engagement models including interns, freelancers, contractual, and full-time professionals.</p>
-            </div>
-            <div className="bg-black border border-white rounded-2xl p-6">
-              <div className="flex items-center gap-4 mb-4">
-                <FaChartLine className="text-blue-500 text-3xl" />
-                <h4 className="text-xl font-semibold text-white">Industry-Relevant Skills</h4>
-              </div>
-              <p className="text-white/90">Our candidates possess up-to-date skills that align with current industry standards and emerging technologies.</p>
-            </div>
+          </div>
+          
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+            <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-cyan-500/5 blur-3xl"></div>
           </div>
         </div>
 
@@ -201,34 +271,7 @@ const ITRecruitmentServices = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-black border border-white md:rounded-[4rem] rounded-xl shadow-md flex md:flex-row flex-col items-center md:p-6 p-4 transition-transform transform hover:scale-105"
-            >
-              <div className="flex-1">
-                <img
-                  src={service.image}
-                  alt={service.name}
-                  className="md:rounded-[3rem] rounded-xl sm:h-[250px] md:h-[300px] h-32"
-                />
-              </div>
-              <div className="flex-1 md:pl-6 pl-2">
-                <h3 className="text-lg sm:text-2xl mt-2 sm:mt-0 text-white flex items-center gap-2">
-                  {service.icon} {service.name}
-                </h3>
-                <p className="mt-4 text-white/90 sm:text-base text-sm">{service.description}</p>
-                <button
-                  onClick={() => handleButtonClick(service.name)}
-                  className="mt-6 bg-blue-500 text-white rounded-lg py-2 px-6 hover:bg-blue-700 ml-20 sm:ml-0"
-                >
-                  Connect Now
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Services section is now handled by AnimatedServiceCards component */}
         
         <div className="my-16 text-center">
           <h3 className="text-3xl sm:text-4xl font-bold text-white mb-8">
