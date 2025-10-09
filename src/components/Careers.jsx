@@ -391,6 +391,8 @@ const Careers = () => {
 
       {/* Current Openings Section */}
       <section className="relative z-10 py-20">
+        {/* Section-scoped cursor-follow glow */}
+        <div className="blob-local" />
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -661,6 +663,8 @@ const Careers = () => {
 
       {/* Why Join Us Section */}
       <section className="relative z-10 py-20">
+        {/* Section-scoped cursor-follow glow */}
+        <div className="blob-local" />
         <div className="container mx-auto text-center px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

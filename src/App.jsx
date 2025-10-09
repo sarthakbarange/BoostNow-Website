@@ -1,6 +1,6 @@
 
 "use client"
-// import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Navbar from "./components/Navbar"
@@ -22,9 +22,33 @@ import ITRecruitmentServices from "./pages/ITRecruitmentServices"
 import ProjectT from "./components/Testimonial/ProjectT/ProjectT"
 
 const App = () => {
+  const blobRef = useRef(null)
+
+  useEffect(() => {
+    const el = blobRef.current
+    if (!el) return
+
+    const onMove = (e) => {
+      const x = e.clientX
+      const y = e.clientY
+      // Move the global blob
+      el.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`
+      // Also move any section-scoped blobs
+      const others = document.querySelectorAll('.blob-local')
+      others.forEach((node) => {
+        node.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`
+      })
+    }
+
+    document.addEventListener("mousemove", onMove)
+    return () => document.removeEventListener("mousemove", onMove)
+  }, [])
+
   return (
     <>
       <Router>
+        {/* Global gradient blob (cursor-follow) */}
+        <div className="blob" ref={blobRef} />
         <Navbar />
         <div className="bg-black" style={{ minHeight: "100vh" }}>
           <Routes>

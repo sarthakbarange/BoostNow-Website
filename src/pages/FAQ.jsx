@@ -12,6 +12,8 @@ const FAQ = () => {
         <meta name="keywords" content="Contact BoostNow, IT services contact, software development inquiries, business consultation, cybersecurity solutions, ERP solutions, web development support, IT partnerships, technology consulting" />
       </Helmet>
     <div className='pt-20 relative z-10'>
+        {/* Section-scoped cursor-follow glow for Help Center */}
+        <div className="blob-local" />
         <FAQNo />
         <FAQQuestion />
         <FAQForm />

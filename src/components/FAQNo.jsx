@@ -100,6 +100,8 @@ const FAQNo = () => {
       </div>
 
       <section className="relative z-10 sm:p-8 p-2 text-white py-20" id="why-choose">
+        {/* Section-scoped cursor-follow glow */}
+        <div className="blob-local" />
         <div className="container mx-auto text-center">
           {/* Header Section */}
           <motion.div

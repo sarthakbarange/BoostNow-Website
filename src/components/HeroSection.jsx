@@ -38,6 +38,8 @@ const HeroSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  
+
   return (
     <section
       className="relative z-10 bg-[url('/blogo.png')] bg-center bg-contain bg-no-repeat md:min-h-screen h-[80vh] md:h-[100vh] flex justify-center items-center overflow-hidden px-4 sm:px-8"

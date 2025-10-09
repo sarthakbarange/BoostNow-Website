@@ -43,6 +43,7 @@
     "swiper": "^11.2.1",
     "three": "^0.149.0",
     "threejs-components": "^0.0.20",
+    "typewriter-effect": "^2.22.0",
     "vanta": "^0.5.24"
   },
   "devDependencies": {

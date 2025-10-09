@@ -47,6 +47,8 @@ const Testimonials = () => {
 
   return (
     <div className="bg-transparent relative z-10 h-[100vh] text-white text-center py-10">
+      {/* Section-scoped cursor-follow glow */}
+      <div className="blob-local" />
       <h1 className="text-[4rem] font-bold mb-10">ENTERPRISE GRADE</h1>
       <div className="flex items-center justify-between">
         {/* <div className="triangle-right"></div> */}
