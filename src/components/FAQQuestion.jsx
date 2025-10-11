@@ -93,8 +93,6 @@ const FAQQuestion = () => {
       </div>
 
       <div className="relative z-10 min-h-screen flex items-center justify-center sm:p-6 p-2 py-20">
-        {/* Section-scoped cursor-follow glow behind FAQ content */}
-        <div className="blob-local" />
         <div className="w-full max-w-4xl">
           {/* Header Section */}
           <motion.div

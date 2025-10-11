@@ -21,12 +21,8 @@ const About = () => {
         />
       </Helmet>
 
-      {/* Enhanced Futuristic Blue Theme Background */}
+      {/* Transparent Background to show particles */}
       <div className="relative min-h-screen overflow-hidden">
-        {/* Gradient Layers */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-950 via-blue-800 to-indigo-900 animate-gradient-x"></div>
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(0,168,255,0.25),transparent_70%)]"></div>
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(0,119,255,0.2),transparent_70%)]"></div>
 
         <div className="relative z-10 pt-20">
           {/* Hero Section */}
@@ -40,7 +36,7 @@ const About = () => {
               <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-[0_0_25px_rgba(0,170,255,0.6)]">
                 About Us
               </h1>
-              <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Empowering businesses to succeed with cutting-edge digital
                 solutions and futuristic innovation.
               </p>
@@ -60,7 +56,7 @@ const About = () => {
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_0_20px_rgba(0,140,255,0.6)]">
                   Our Mission
                 </h2>
-                <p className="text-blue-200 leading-relaxed md:text-lg max-w-xl mx-auto">
+                <p className="text-gray-300 leading-relaxed md:text-lg max-w-xl mx-auto">
                   At BoostNow, our mission is to accelerate business growth by
                   offering customized, world-class digital solutions. We thrive
                   on creativity, collaboration, and innovation to deliver
@@ -113,7 +109,7 @@ const About = () => {
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_0_20px_rgba(100,150,255,0.7)]">
                   Our Vision
                 </h2>
-                <p className="text-blue-200 leading-relaxed md:text-lg max-w-xl mx-auto">
+                <p className="text-gray-300 leading-relaxed md:text-lg max-w-xl mx-auto">
                   To become a global leader in digital transformation, empowering
                   businesses to thrive in the era of innovation. We strive to
                   create impactful solutions that inspire change and generate
@@ -153,12 +149,12 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: index * 0.2 }}
                     viewport={{ once: true }}
-                    className="p-8 rounded-2xl bg-blue-900/30 backdrop-blur-xl border border-blue-400/20 shadow-[0_0_20px_rgba(0,170,255,0.3)] hover:shadow-[0_0_30px_rgba(0,180,255,0.6)] transform hover:scale-105 transition-all duration-500"
+                    className="p-8 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500"
                   >
                     <h3 className="text-2xl font-semibold text-white mb-4 drop-shadow-[0_0_15px_rgba(0,150,255,0.5)]">
                       {value.title}
                     </h3>
-                    <p className="text-blue-200">{value.description}</p>
+                    <p className="text-gray-300">{value.description}</p>
                   </motion.div>
                 ))}
               </div>

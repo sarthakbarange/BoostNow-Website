@@ -87,8 +87,7 @@ const ITRecruitmentServices = () => {
       </Helmet>
       <main className="min-h-screen relative z-10 text-white bg-transparent">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-blue-900/20 to-purple-900/20 py-20 px-4 overflow-hidden">
-          <div className="absolute inset-0 bg-black/30"></div>                                                              
+        <section className="relative py-20 px-4 overflow-hidden">                                                              
           <div className="max-w-7xl mx-auto text-center relative z-10">
             <h1 className="text-5xl sm:text-7xl font-bold mb-6 bg-white bg-clip-text text-transparent">
               IT RECRUITMENT SERVICES

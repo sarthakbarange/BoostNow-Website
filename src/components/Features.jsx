@@ -99,7 +99,7 @@ const Features = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col w-full sm:w-[25vw] justify-between border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 transition border-white bg-black p-2 sm:p-4 rounded-2xl max-[639px]:w-[25%]">
+          <div className="flex flex-col w-full sm:w-[25vw] justify-between border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 transition border-cyan-400 bg-black p-2 sm:p-4 rounded-2xl max-[639px]:w-[25%]">
             <h3 className="sm:text-xl text-xs h-20 font-medium text-center max-[639px]:break-words">
               Integrations
             </h3>
@@ -132,7 +132,7 @@ const Features = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center sm:w-[24vw] border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[27%]">
+          <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center sm:w-[24vw] border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[27%]">
             <h3 className="sm:text-xl text-xs font-medium text-center h-20 max-[639px]:break-words">
               Unlimited Scale
             </h3>
@@ -144,7 +144,7 @@ const Features = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center sm:w-[24vw] border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center sm:w-[24vw] border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl text-xs break-words font-medium text-center h-20 max-[639px]:break-words max-[639px]:w-[100%]">
               Private and Secure
             </h3>
@@ -156,7 +156,7 @@ const Features = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl text-xs font-medium text-center max-[639px]:truncate">
               Countdown
             </h3>
@@ -180,7 +180,7 @@ const Features = () => {
               />
             </div> */}
           </div>
-          <div className="flex flex-col items-center justify-center sm:px-2 sm:w-[10vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col items-center justify-center sm:px-2 sm:w-[10vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl text-xs break-words font-medium text-center max-[639px]:truncate">
               Dynamic Pricing
             </h3>
@@ -195,7 +195,7 @@ const Features = () => {
         </div>
         {/* Features 2 Row */}
         <div className="flex flex-wrap max-[639px]:flex-row flex-col sm:flex-row sm:flex-nowrap sm:h-[26vh] gap-2 max-[639px]:gap-1 justify-center">
-          <div className="flex flex-col sm:w-[32vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white bg-black p-2 sm:p-4 rounded-2xl transition max-[639px]:w-[25%]">
+          <div className="flex flex-col sm:w-[32vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-cyan-400 bg-black p-2 sm:p-4 rounded-2xl transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl  h-16 text-xs font-medium text-center max-[639px]:truncate">
               Personalization
             </h3>
@@ -267,7 +267,7 @@ const Features = () => {
               </i>
             </div>
           </div>
-          <div className="flex flex-col sm:w-[9.5vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col sm:w-[9.5vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl  h-16 text-xs font-medium text-center max-[639px]:truncate">
               Exploration
             </h3>
@@ -279,7 +279,7 @@ const Features = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col sm:w-[9.7vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col sm:w-[9.7vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl  text-xs font-medium text-center max-[639px]:break-words h-16">
               Dynamic Greeting
             </h3>
@@ -294,7 +294,7 @@ const Features = () => {
         </div>
         {/* Features 3 */}
         <div className="flex flex-wrap max-[639px]:flex-row flex-col sm:flex-row sm:flex-nowrap sm:h-[26vh] gap-2 max-[639px]:gap-1 justify-center">
-          <div className="flex flex-col sm:w-[10vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col sm:w-[10vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl text-xs font-medium text-center max-[639px]:truncate">
               AI Optimization
             </h3>
@@ -318,7 +318,7 @@ const Features = () => {
               />
             </div> */}
           </div>
-          <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 sm:w-[10vw] justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 sm:w-[10vw] justify-center items-center border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl text-xs font-medium text-center max-[639px]:truncate">
               CTA
             </h3>
@@ -330,7 +330,7 @@ const Features = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col sm:w-[25vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col sm:w-[25vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl h-20 text-xs font-medium text-center max-[639px]:break-words max-[639px]:w-[100%]">
               Forms For 2-Way Communications
             </h3>
@@ -342,7 +342,7 @@ const Features = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col sm:w-[24vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col sm:w-[24vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl  h-20 text-xs font-medium text-center max-[639px]:break-words">
               Adobe After Effects
             </h3>
@@ -354,7 +354,7 @@ const Features = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col sm:w-[24vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-white p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
+          <div className="flex flex-col sm:w-[24vw] border hover:border-[#38b6ff] hover:shadow-[0_0_15px_5px_rgba(173,216,230,0.5)] duration-300 justify-center items-center border-cyan-400 p-2 sm:p-4 rounded-2xl bg-black transition max-[639px]:w-[25%]">
             <h3 className="sm:text-xl  h-20 text-xs font-medium text-center max-[639px]:break-words">
               Generative AI Creation
             </h3>

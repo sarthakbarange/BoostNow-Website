@@ -8,9 +8,9 @@ export default function HowItWorks() {
   });
 
   return (
-    <div className="bg-black relative text-white py-8 px-4 flex flex-col items-center min-h-screen overflow-hidden">
+    <div className="bg-black relative text-white py-8 px-6 md:px-10 lg:px-16 flex flex-col items-center min-h-screen overflow-hidden rounded-[30px] mx-6 md:mx-12 lg:mx-20">
       {/* Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden rounded-[30px]">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-teal-900/20"></div>
 
         {/* Particles */}
