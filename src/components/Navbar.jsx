@@ -17,6 +17,7 @@ export default function Navbar() {
     firstName: "",
     lastName: "",
     workEmail: "",
+    phoneNumber: "",
     message: "",
   })
 
@@ -24,9 +25,20 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40)
     }
+    
+    const handleClickOutside = (event) => {
+      // Close dropdown when clicking outside of services section
+      if (!event.target.closest('.services-dropdown-container')) {
+        setDropdownOpen(false)
+      }
+    }
+    
     window.addEventListener("scroll", handleScroll)
+    document.addEventListener("click", handleClickOutside)
+    
     return () => {
       window.removeEventListener("scroll", handleScroll)
+      document.removeEventListener("click", handleClickOutside)
     }
   }, [])
 
@@ -51,7 +63,7 @@ export default function Navbar() {
         }
       )
       // Clear form and show success
-      setFormData({ firstName: "", lastName: "", workEmail: "", message: "" })
+      setFormData({ firstName: "", lastName: "", workEmail: "", phoneNumber: "", message: "" })
       setIsFormOpen(false)
       setFormSubmitted(true)
     } catch (error) {
@@ -94,59 +106,71 @@ export default function Navbar() {
 
           {/* Desktop navigation (explicit links to preserve routes) */}
           <div className="hidden lg:flex lg:gap-x-10">
-            <Link to="/" className="relative text-white text-lg font-medium group">
+            <Link 
+              to="/" 
+              className="relative text-white text-lg font-medium group"
+              onClick={() => setDropdownOpen(false)}
+            >
               Home
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
             </Link>
 
-            <Link to="/about" className="relative text-white text-lg font-medium group">
+            <Link 
+              to="/about" 
+              className="relative text-white text-lg font-medium group"
+              onClick={() => setDropdownOpen(false)}
+            >
               About
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
             </Link>
 
-            {/* Services: clickable Link (navigates to /services) + hover dropdown */}
+            {/* Services: hover to show dropdown, click to dismiss */}
             <div
-              className="relative"
+              className="relative services-dropdown-container"
               onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
             >
-              <Link to="/services" className="flex items-center text-white text-lg font-medium group">
+              <Link 
+                to="/services" 
+                className="flex items-center text-white text-lg font-medium group"
+                onClick={() => setDropdownOpen(false)}
+              >
                 Services
                 {dropdownOpen ? (
                   <ChevronDownIcon className="ml-1 w-5 h-5" />
                 ) : (
                   <ChevronRightIcon className="ml-1 w-5 h-5" />
                 )}
+                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
               </Link>
 
               {dropdownOpen && (
-                <div
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
-                  className="absolute left-0 mt-2 w-56 rounded-lg bg-black/80 backdrop-blur-xl border border-cyan-500/30 shadow-lg"
-                >
+                <div className="absolute left-0 mt-2 w-56 rounded-lg bg-black/80 backdrop-blur-xl border border-cyan-500/30 shadow-lg z-50">
                   <div className="py-2">
                      <Link
                       to="/services/DaaS"
-                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white"
+                      onClick={() => setDropdownOpen(false)}
+                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white transition-colors"
                     >
                      DaaS
                     </Link>
                     <Link
                       to="/services/itservices"
-                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white"
+                      onClick={() => setDropdownOpen(false)}
+                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white transition-colors"
                     >
                       IT Services
                     </Link>
                     <Link
                       to="/services/training"
-                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white"
+                      onClick={() => setDropdownOpen(false)}
+                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white transition-colors"
                     >
                       IT Training
                     </Link>
                     <Link
                       to="/itrecruitment"
-                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white"
+                      onClick={() => setDropdownOpen(false)}
+                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white transition-colors"
                     >
                       IT Recruitment
                     </Link>
@@ -154,7 +178,8 @@ export default function Navbar() {
                       to="https://boostnowai.com/"
                       target="_blank"
                       rel="noreferrer"
-                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white"
+                      onClick={() => setDropdownOpen(false)}
+                      className="block px-4 py-2 text-gray-200 hover:bg-cyan-600/40 hover:text-white transition-colors"
                     >
                       ERP
                     </Link>
@@ -163,18 +188,30 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link to="/careers" className="relative text-white text-lg font-medium group">
+            <Link 
+              to="/careers" 
+              className="relative text-white text-lg font-medium group"
+              onClick={() => setDropdownOpen(false)}
+            >
               Careers
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
             </Link>
 
-            <Link to="/contact" className="relative text-white text-lg font-medium group">
+            <Link 
+              to="/contact" 
+              className="relative text-white text-lg font-medium group"
+              onClick={() => setDropdownOpen(false)}
+            >
               Contact
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
             </Link>
 
             {/* Testimonial */}
-            <Link to="/project" className="relative text-white text-lg font-medium group">
+            <Link 
+              to="/project" 
+              className="relative text-white text-lg font-medium group"
+              onClick={() => setDropdownOpen(false)}
+            >
               Testimonial
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
             </Link>
@@ -190,6 +227,7 @@ export default function Navbar() {
                   const safe = Math.ceil(rect.top + rect.height + 8)
                   document.documentElement.style.setProperty('--navbar-safe-top', `${safe}px`)
                 }
+                setDropdownOpen(false)
                 setIsFormOpen(true)
               }}
               className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold shadow-[0_0_20px_rgba(0,200,255,0.8)] hover:scale-105 transition"
@@ -303,71 +341,223 @@ export default function Navbar() {
         </DialogPanel>
       </Dialog>
 
-      {/* Get in Touch Form Modal */}
+      {/* Get Quote Form Modal */}
       {isFormOpen && !formSubmitted && (
         <div
-          className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-start justify-center pt-[var(--navbar-safe-top)] sm:pt-[calc(var(--navbar-safe-top)+16px)] overflow-y-auto"
+          className="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm flex items-start justify-center pt-[var(--navbar-safe-top)] sm:pt-[calc(var(--navbar-safe-top)+16px)] overflow-y-auto p-4"
           onClick={() => setIsFormOpen(false)}
         >
-          <div
-            className="bg-white rounded-lg p-6 w-11/12 max-w-md mx-4 my-6 sm:my-8 max-h-[calc(100vh-var(--navbar-safe-top)-32px)] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-xl font-semibold">Get Quote</h3>
-              <button className="text-gray-600" onClick={() => setIsFormOpen(false)} aria-label="Close form">X</button>
+          {/* Background decorative elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+            <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-400/10 rounded-full blur-xl"></div>
+          </div>
+
+          <div className="relative max-w-md w-full mx-4 my-6 sm:my-8">
+            {/* Main form container with glass morphism effect */}
+            <div
+              className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header section with gradient background */}
+              <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-6 text-center border-b border-white/10">
+                <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent mb-2">
+                  Get Quote
+                </h2>
+                <p className="text-blue-200/80 text-sm">Request a personalized quote for our services</p>
+              </div>
+
+              {/* Form section */}
+              <div className="p-2">
+                <form className="space-y-2" onSubmit={handleSubmit}>
+                  {/* Name Fields */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="group">
+                      <label
+                        htmlFor="firstName"
+                        className="block text-sm font-medium text-blue-200/90 mb-2"
+                      >
+                        First Name
+                      </label>
+                      <div className="relative">
+                        <input
+                          id="firstName"
+                          name="firstName"
+                          type="text"
+                          placeholder="Enter first name"
+                          value={formData.firstName}
+                          onChange={handleChange}
+                          required
+                          className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                        />
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                      </div>
+                    </div>
+                    <div className="group">
+                      <label
+                        htmlFor="lastName"
+                        className="block text-sm font-medium text-blue-200/90 mb-2"
+                      >
+                        Last Name
+                      </label>
+                      <div className="relative">
+                        <input
+                          id="lastName"
+                          name="lastName"
+                          type="text"
+                          placeholder="Enter last name"
+                          value={formData.lastName}
+                          onChange={handleChange}
+                          required
+                          className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                        />
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Email Field */}
+                  <div className="group">
+                    <label
+                      htmlFor="workEmail"
+                      className="block text-sm font-medium text-blue-200/90 mb-2"
+                    >
+                      Email Address
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="workEmail"
+                        name="workEmail"
+                        type="email"
+                        placeholder="your@email.com"
+                        value={formData.workEmail}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                      />
+                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                    </div>
+                  </div>
+
+                  {/* Phone Field */}
+                  <div className="group">
+                    <label
+                      htmlFor="phoneNumber"
+                      className="block text-sm font-medium text-blue-200/90 mb-2"
+                    >
+                      Phone Number
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        type="tel"
+                        placeholder="Your phone number"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-2 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner"
+                      />
+                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                    </div>
+                  </div>
+
+                  {/* Message Field */}
+                  <div className="group">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-blue-200/90 mb-2"
+                    >
+                      Message
+                    </label>
+                    <div className="relative">
+                      <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell us about your project requirements"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={2}
+                        className="w-full rounded-lg border-0 bg-white/10 backdrop-blur-sm p-3 text-sm text-white placeholder-blue-200/50 focus:ring-2 focus:ring-blue-400/50 focus:bg-white/20 transition-all duration-300 shadow-inner resize-none"
+                      />
+                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-blue-400/10 group-hover:to-blue-400/5 transition-all duration-300 pointer-events-none"></div>
+                    </div>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-3 pt-2">
+                    <button
+                      type="submit"
+                      className="flex-1 group relative bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white py-3 rounded-lg text-sm font-bold hover:from-blue-700 hover:via-blue-600 hover:to-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-300/50 transform hover:scale-[1.02] transition-all duration-300 shadow-xl overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                      <span className="relative">Submit Quote Request</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setIsFormOpen(false)}
+                      className="px-6 py-3 rounded-lg text-sm font-medium text-blue-200 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 transition-all duration-300"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={formData.firstName}
-                onChange={handleChange}
-                required
-                className="w-full mb-3 p-2 border rounded"
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={formData.lastName}
-                onChange={handleChange}
-                required
-                className="w-full mb-3 p-2 border rounded"
-              />
-              <input
-                type="email"
-                name="workEmail"
-                placeholder="Your Email"
-                value={formData.workEmail}
-                onChange={handleChange}
-                required
-                className="w-full mb-3 p-2 border rounded"
-              />
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full mb-3 p-2 border rounded"
-              />
-              <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">
-                Submit
-              </button>
-            </form>
           </div>
         </div>
       )}
 
       {/* Success Message */}
       {formSubmitted && (
-        <div className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-start justify-center pt-[var(--navbar-safe-top)] sm:pt-[calc(var(--navbar-safe-top)+16px)] overflow-y-auto">
-          <div className="bg-white rounded-lg p-6 w-11/12 max-w-md text-center mx-4 my-6 sm:my-8">
-            <h3 className="text-xl font-semibold">Thank You!</h3>
-            <p className="mt-2">Your message has been sent. We will get back to you soon.</p>
-            <button onClick={() => setFormSubmitted(false)} className="mt-4 bg-blue-600 text-white py-2 rounded w-full">Close</button>
+        <div className="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm flex items-start justify-center pt-[var(--navbar-safe-top)] sm:pt-[calc(var(--navbar-safe-top)+16px)] overflow-y-auto p-4">
+          <div className="relative max-w-md w-full mx-4 my-6 sm:my-8">
+            <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
+              <div className="bg-gradient-to-r from-green-600/20 via-green-500/15 to-green-400/20 p-6 text-center border-b border-white/10">
+                <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-white via-green-100 to-green-200 bg-clip-text text-transparent mb-2">Thank You!</h3>
+                <p className="text-green-200/80 text-sm">Your quote request has been sent successfully</p>
+              </div>
+              <div className="p-6 text-center">
+                <p className="text-blue-200/90 mb-4">We will review your requirements and get back to you within 24 hours.</p>
+                <button 
+                  onClick={() => setFormSubmitted(false)} 
+                  className="w-full bg-gradient-to-r from-green-600 via-green-500 to-green-400 text-white py-3 rounded-lg text-sm font-bold hover:from-green-700 hover:via-green-600 hover:to-green-500 focus:outline-none focus:ring-4 focus:ring-green-300/50 transform hover:scale-[1.02] transition-all duration-300 shadow-xl"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

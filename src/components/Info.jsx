@@ -2,7 +2,7 @@ import React from 'react';
 
 const Info = ({ id }) => {
   return (
-    <section id={id} className="min-h-screen flex flex-col justify-center items-center bg-gray-900">
+    <section id={id} className="min-h-screen flex flex-col justify-center items-center ">
       <h2 className="text-3xl font-bold text-center text-white mb-8">Contact Us</h2>
       {/* The fix for mobile spacing is on the line below: 'mx-4' */}
       <div className="flex justify-center items-center mt-10 p-8 rounded-2xl bg-white max-w-md md:max-w-xl mx-4"> 

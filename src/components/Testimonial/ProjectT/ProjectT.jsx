@@ -149,31 +149,16 @@ const cards = [
 
 const ProjectT = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
-      {/* Section-scoped cursor-follow glow */}
-      <div className="blob-local" />
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="h-full w-full bg-grid-white/[0.05] bg-[size:50px_50px]"></div>
-      </div>
+    <div className="relative min-h-screen overflow-hidden">
 
       <div className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-        {/* Header-scoped cursor-follow glow */}
-        <div className="blob-local" />
         {/* Header Section */}
         <div className="text-center mb-16">
           <div className="inline-block">
             <span className="text-sm font-medium text-blue-400 tracking-widest uppercase mb-4 block">
               Our Portfolio
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-white bg-clip-text text-transparent leading-tight mb-6">
               Templates & Testimonials
             </h1>
             <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-6"></div>

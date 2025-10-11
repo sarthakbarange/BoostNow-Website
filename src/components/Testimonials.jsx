@@ -47,24 +47,9 @@ const Testimonials = () => {
 
   return (
     <div className="bg-transparent relative z-10 h-[100vh] text-white text-center py-10">
-      {/* Section-scoped cursor-follow glow */}
-      <div className="blob-local" />
       <h1 className="text-[4rem] font-bold mb-10">ENTERPRISE GRADE</h1>
       <div className="flex items-center justify-between">
         {/* <div className="triangle-right"></div> */}
-        <div className=" ">
-      <div
-        // className="bg-gradient-to-b from-[#1c1c1c] via-[#2d2d2d] to-[#434343]"
-        className="bg-gradient-to-b from-[#000000] via-[#2d2d2d] to-[#434343]"
-        style={{
-          clipPath: "polygon(0 0, 100% 50%, 0 100%)",
-          width: "130px",
-          height: "300px",
-        }}
-        
-      ></div>
-      
-    </div>
         <div className="flex justify-center items-center flex-wrap gap-10">
         <div className="relative w-50 h-50 mr-16 transform rotate-45 ">
           {/* <div className="w-full h-full  overflow-hidden bg-white rounded-md"> */}
@@ -166,16 +151,6 @@ const Testimonials = () => {
           </div>
         </div>
         </div>
-        <div className="">
-      <div
-        className="bg-gradient-to-b from-[#1c1c1c] via-[#2d2d2d] to-[#434343]"
-        style={{
-          clipPath: "polygon(100% 0, 0 50%, 100% 100%)",
-          width: "130px",
-          height: "300px",
-        }}
-      ></div>
-    </div>
       </div>
     </div>
   );
