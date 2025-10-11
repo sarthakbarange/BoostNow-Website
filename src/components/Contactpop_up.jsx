@@ -74,8 +74,8 @@ export default function Contactpop_up({ showPopup, onClose }) {
   };
 
   return (
-    // Mobile-first approach: use full viewport with compact padding
-    <div className="fixed inset-0 z-50 flex items-start justify-center p-2 pt-16 sm:items-center sm:p-8">
+    // Mobile-first approach: use full viewport with minimal padding
+    <div className="fixed inset-0 z-50 flex items-start justify-center p-1 pt-20 sm:items-center sm:p-20">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
@@ -89,9 +89,9 @@ export default function Contactpop_up({ showPopup, onClose }) {
         role="dialog"
         aria-modal="true"
         className="
-          relative w-full max-w-md mx-auto
+          relative w-full max-w-lg mx-auto
           bg-gradient-to-br from-white/10 via-white/5 to-transparent
-          backdrop-blur-xl border border-white/20 rounded-lg shadow-xl overflow-hidden flex flex-col
+          backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden flex flex-col
           max-h-[96vh] sm:max-h-[90vh] h-fit
         "
       >
@@ -99,16 +99,16 @@ export default function Contactpop_up({ showPopup, onClose }) {
         <button
           type="button"
           aria-label="Close contact form"
-          onClick={() => onClose && onClose()}
+          onClick={() => onClose()}
           className="absolute top-2 right-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/30 text-white hover:bg-white hover:text-black shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
         >
           ✕
         </button>
 
         {/* Header (compact for mobile) */}
-        <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-1.5 sm:p-2.5 text-center border-b border-white/10 shrink-0">
-          <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
-            <div className="w-5 h-5 sm:w-7 sm:h-7">
+        <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-1.5 sm:p-3 text-center border-b border-white/10 shrink-0">
+          <div className="w-8 h-8 sm:w-12 sm:h-12 mx-auto mb-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+            <div className="w-5 h-5 sm:w-8 sm:h-8">
               <DotLottieReact
                 src="https://lottie.host/eb1810d4-9f06-4c4d-9b01-e4ab15735e7b/YkANIylCA9.lottie"
                 loop
@@ -125,7 +125,7 @@ export default function Contactpop_up({ showPopup, onClose }) {
         </div>
 
         {/* Form - Optimized for mobile */}
-        <div className="p-2 sm:p-5 flex-1 overflow-y-auto min-h-0">
+        <div className="p-1.5 sm:p-6 flex-1 overflow-y-auto min-h-0">
           <form className="space-y-2 sm:space-y-4" onSubmit={handleSubmit}>
             {/* Personal Info */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">

@@ -120,16 +120,16 @@ export default function Form() {
     }
   };
   return (
-    <section className="relative z-10 w-full py-4 sm:py-6 overflow-x-hidden">
+    <section className="pt-6 sm:pt-8 pb-2 relative z-10 min-h-screen flex items-start justify-center overflow-x-hidden">
       {/* Background decorative elements */}
       
-      <div className="max-w-md w-full px-3 sm:px-4 md:px-5 mx-auto relative">
+      <div className="max-w-2xl w-full px-4 sm:px-6 md:px-8 mx-auto relative">
         {/* Main form container with glass morphism effect */}
-        <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-lg shadow-xl overflow-hidden flex flex-col">
+        <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden flex flex-col">
           {/* Header section with gradient background */}
-          <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-2 text-center border-b border-white/10 flex-shrink-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 mx-auto mb-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
-              <div className="w-7 h-7 sm:w-9 sm:h-9">
+          <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-2 sm:p-3 text-center border-b border-white/10 flex-shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 sm:w-10 sm:h-10">
                 <DotLottieReact
                   src="https://lottie.host/eb1810d4-9f06-4c4d-9b01-e4ab15735e7b/YkANIylCA9.lottie"
                   loop
@@ -137,14 +137,14 @@ export default function Form() {
                 />
               </div>
             </div>
-            <h2 className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent mb-1">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent mb-1">
               Get In Touch
             </h2>
             <p className="text-blue-200/80 text-xs hidden sm:block">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
           </div>
 
           {/* Form section */}
-          <div className="p-2 sm:p-3 overflow-hidden">
+          <div className="p-3 sm:p-4 overflow-hidden">
             <form className="space-y-3 w-full" onSubmit={handleSubmit}>
               {/* Personal Information Section */}
               <div className="space-y-2">
