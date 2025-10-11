@@ -8,7 +8,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 // import ITTraining from './ITTraining'
 // import ITTraning from '../components/ITTraning'
-import MainServices from '../components/mainServices'
+import MainServices from '../components/MainServices'
 // import Testimonial from '../components/vinit/Testimonial/Testimonial/Testimonial1'
 import GetStartedNow from '../components/GetStartedNow'
 import { Helmet } from "react-helmet";
