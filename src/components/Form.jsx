@@ -120,7 +120,7 @@ export default function Form() {
     }
   };
   return (
-    <section className="pt-6 sm:pt-8 pb-2 relative z-10 min-h-screen flex items-start justify-center overflow-x-hidden">
+    <section className="pt-30 sm:pt-36 pb-2 relative z-10 min-h-screen flex items-start justify-center overflow-x-hidden">
       {/* Background decorative elements */}
       
       <div className="max-w-2xl w-full px-4 sm:px-6 md:px-8 mx-auto relative">

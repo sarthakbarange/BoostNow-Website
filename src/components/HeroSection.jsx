@@ -47,7 +47,7 @@ const HeroSection = () => {
       data-aos-duration="1000"
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
 
       {/* Animations / GIFs */}
       <div className="absolute top-[10%] left-[2%] md:top-[25%] md:left-[10%] z-10">

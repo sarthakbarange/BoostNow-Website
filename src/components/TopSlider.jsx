@@ -61,7 +61,7 @@ function TopSlider() {
   };
 
   return (
-    <div className="p-4 md:p-6 lg:p-8 relative z-10 bg-gradient-to-b from-transparent via-black to-transparent">
+    <div className="p-4 md:p-6 lg:p-8 relative z-10">
       <h1
         className="text-transparent bg-clip-text text-white text-center font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl m-4"
         style={{ fontFamily: "Poppins, sans-serif" }}

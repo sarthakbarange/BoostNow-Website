@@ -53,7 +53,7 @@ const HowWeWork = () => {
     <>
       {/* Desktop / Tablet */}
       <section className="text-white hidden sm:block">
-        <div className="container bg-black text-center">
+        <div className="container bg-transparent text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -68,8 +68,8 @@ const ProgressBar = () => {
       </h3>
 
       <div className="flex flex-col justify-center items-center space-y-8">
-        <div className="bg-black border border-white shadow-lg p-5 w-[80vw] md:w-[75vw] rounded-[2rem]">
-          <div className="max-w-screen-lg w-full px-4 bg-gradient-to-r from-[#212121] via-[#070101] to-black rounded-[2rem] shadow-lg relative overflow-hidden">
+        <div className="bg-transparent border border-white shadow-lg p-5 w-[80vw] md:w-[75vw] rounded-[2rem]">
+          <div className="max-w-screen-lg w-full px-4 bg-transparent rounded-[2rem] shadow-lg relative overflow-hidden">
             <div className="text-white m-4 rounded-tl-[3rem] rounded-tr-[3rem] text-center px-4 md:block hidden">
               <div className="flex items-center justify-between overflow-x-auto">
                 <div className="pr-2">Awareness</div>

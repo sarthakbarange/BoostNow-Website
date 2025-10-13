@@ -91,7 +91,7 @@ const Traning = () => {
       <main className="min-h-screen relative z-10 text-white bg-transparent">
         {/* Hero Section */}
         <section className="relative py-20 px-4 overflow-hidden" data-aos="fade-in">
-          <div className="absolute inset-0 bg-black/30"></div>                                                              
+          <div className="absolute inset-0 bg-transparent"></div>                                                              
           <div className="max-w-7xl mx-auto text-center relative z-10">
             <div className="flex justify-center mb-6" data-aos="zoom-in">
               
