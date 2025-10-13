@@ -117,11 +117,12 @@ const Traning = () => {
             </div>
           </div>
         </section>
-        <section className="max-w-7xl mx-auto px-4 py-20">
+        <section className="w-full py-20">
           <Technologies />
           
           
           {/* Main Training Overview */}
+          <div className="max-w-7xl mx-auto px-4">
           <div className="grid gap-12 my-16" id="training-programs">
             <div className="bg-white/5 backdrop-blur-2xl border border-white/20 md:rounded-[4rem] rounded-3xl shadow-2xl flex md:flex-row flex-col items-center md:p-10 p-8 transition-all transform hover:scale-[1.02] hover:bg-white/10 hover:border-white/30 hover:shadow-blue-500/20 relative overflow-hidden" data-aos="fade-right">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-cyan-600/5"></div>
@@ -231,6 +232,7 @@ const Traning = () => {
           
           
           
+          </div>
         </section>
       </main>
 

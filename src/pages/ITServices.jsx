@@ -56,13 +56,15 @@ const Solution = () => {
     <meta name="description" content="BoostNow offers top-tier IT services, including web development, ERP solutions, cybersecurity, and automation. We provide tailored technology solutions for startups, small businesses, and enterprises to help them scale efficiently." />
     <meta name="keywords" content="IT services, software development, web development, ERP solutions, cybersecurity, business automation, cloud computing, SaaS, IT consulting, startups, small business technology, enterprise solutions, digital transformation, e-commerce solutions, managed IT services " />
   </Helmet>
-      <section className="max-w-7xl relative z-10 pt-28 mx-auto px-4 pb-20">
-        <h2 className="text-4xl sm:text-6xl text-center font-bold text-white mb-4 sm:mb-12">
-          IT Services
-        </h2>
-        <p className="md:text-lg text-base text-center text-gray-100 text-muted-foreground sm:mb-12">
-          We provide cutting-edge IT services, including web and software development, cloud solutions, cybersecurity, and IT consulting. Our expert team ensures seamless digital transformation, optimizing efficiency and innovation for businesses of all sizes.
-        </p>
+      <section className="w-full relative z-10 pt-28 pb-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl sm:text-6xl text-center font-bold text-white mb-4 sm:mb-12">
+            IT Services
+          </h2>
+          <p className="md:text-lg text-base text-center text-gray-100 text-muted-foreground sm:mb-12">
+            We provide cutting-edge IT services, including web and software development, cloud solutions, cybersecurity, and IT consulting. Our expert team ensures seamless digital transformation, optimizing efficiency and innovation for businesses of all sizes.
+          </p>
+        </div>
         <Technologies />
         <ITServices/>
 
