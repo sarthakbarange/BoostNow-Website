@@ -78,6 +78,46 @@ import React from "react";
 import Cards from "../Cards/Cards.jsx";
 
 
+// Testimonials data
+const testimonials = [
+  {
+    id: 1,
+    text: "When businesses worldwide trust you with their tech, you know you're delivering more than a service. With our IT DaaS — Department as a Service, BoostNow becomes your dedicated tech department, built to global standards. Because for every tech need, there's only one name: BoostNow.",
+    author: "Retail Craft Asia",
+    image: "/Testinomial/retailcraft.mp4",
+    link: "https://www.linkedin.com/posts/boostnowsolutions_itdaas-departmentasaservice-boostnow-activity-7376331222790275072-M8re?utm_source=share&utm_medium=member_android&rcm=ACoAAD3ucgQBwWaSp-5ZbZjeWZmHm67BLGQMQPg"
+  },
+  {
+    id: 2,
+    text: "Whenever we talk to business leaders — whether it's a startup founder or a CIO of a mid-sized company — one theme keeps surfacing: IT has quietly shifted from being a 'back-office function' to becoming a strategic driver of growth. The companies who see IT this way are the ones moving faster, scaling better, and staying resilient in unpredictable markets.",
+    author: "Business Leader",
+    image: "/Testinomial/imageA.jpeg",
+    link: "https://www.linkedin.com/posts/boostnowsolutions_whenever-we-talk-to-business-leaders-whether-activity-7373279155515199488-EP3l?utm_source=share&utm_medium=member_android&rcm=ACoAAD3ucgQBwWaSp-5ZbZjeWZmHm67BLGQMQPg"
+  },
+  {
+    id: 3,
+    text: "I noticed a pattern in every startup that scaled fast… And it has almost nothing to do with sales or investors. Want to know the secret? Check out my article.",
+    author: "Industry Expert",
+    image: "/Testinomial/imageD.jpeg",
+    link: "https://www.linkedin.com/pulse/tech-agility-silent-differentiator-modern-leaders-jaysal-rangari-nmegc?utm_source=share&utm_medium=member_android&utm_campaign=share_via"
+  },
+  {
+    id: 4,
+    text: "I've seen startups and enterprises struggle with the same IT headaches. Here's the shift I believe is coming.",
+    author: "Tech Consultant",
+    image: "/Testinomial/imageB.png",
+    link: "https://www.linkedin.com/pulse/future-why-companies-moving-department-as-a-service-jaysal-rangari-ueoqf?utm_source=share&utm_medium=member_android&utm_campaign=share_via"
+  },
+  {
+    id: 5,
+    text: "BoostNow transformed our entire IT infrastructure. Their proactive approach and 24/7 support have been game-changers for our business operations. We've seen a 40% improvement in system efficiency since partnering with them.",
+    author: "CTO, StartupTech",
+    image: "/Testinomial/imageC.jpeg",
+    link: "https://www.linkedin.com/posts/boostnowsolutions_startupopportunity-techsales-softwarecompany-activity-7317273466632585218-GG2O?utm_source=share&utm_medium=member_android&rcm=ACoAAD3ucgQBwWaSp-5ZbZjeWZmHm67BLGQMQPg"
+  }
+];
+
+// Templates data
 const cards = [
   {
     author: "Sample 1",
@@ -152,21 +192,6 @@ const ProjectT = () => {
     <div className="relative min-h-screen overflow-hidden">
 
       <div className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <div className="inline-block">
-            <span className="text-sm font-medium text-blue-400 tracking-widest uppercase mb-4 block">
-              Our Portfolio
-            </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-white bg-clip-text text-transparent leading-tight mb-6">
-              Templates & Testimonials
-            </h1>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-              Explore our collection of stunning templates and see what our clients have achieved with our solutions
-            </p>
-          </div>
-        </div>
 
         {/* Stats Section */}
         {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-4xl mx-auto">
@@ -190,46 +215,189 @@ const ProjectT = () => {
 
         {/* Main Content Container */}
         <div className="max-w-7xl mx-auto">
-          {/* Filter/Category Section */}
-          {/* <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full font-medium hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg">
-              All Templates
-            </button>
-            <button className="px-6 py-3 bg-gray-800/50 text-gray-300 rounded-full font-medium hover:bg-gray-700/50 transition-all duration-300 border border-gray-600/30">
-              Business
-            </button>
-            <button className="px-6 py-3 bg-gray-800/50 text-gray-300 rounded-full font-medium hover:bg-gray-700/50 transition-all duration-300 border border-gray-600/30">
-              Portfolio
-            </button>
-            <button className="px-6 py-3 bg-gray-800/50 text-gray-300 rounded-full font-medium hover:bg-gray-700/50 transition-all duration-300 border border-gray-600/30">
-              E-commerce
-            </button>
-          </div> */}
+          
+          {/* Testimonials Section */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                Testimonials
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-4"></div>
+            </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-            {cards.map((card, index) => (
-              <div
-                key={index}
-                className="group relative transform transition-all duration-500 hover:scale-105"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
+            
+            {/* Video Card */}
+            <div className="flex justify-center mb-12">
+              <div className="max-w-4xl w-full group relative transform transition-all duration-500 hover:scale-105">
                 {/* Card Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 {/* Enhanced Card Wrapper */}
                 <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden shadow-2xl">
-                  <Cards card={card} />
-                </div>
+                  
+                  {/* Horizontal Layout: Video + Title */}
+                  <div className="flex flex-col md:flex-row">
+                    {/* Video Container */}
+                    <div className="relative overflow-hidden md:w-2/3">
+                      <div className="relative w-full h-80 md:h-96 lg:h-[28rem] overflow-hidden">
+                        <video
+                          src={testimonials[0].image}
+                          className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          onError={(e) => {
+                            console.log('Video failed to load:', testimonials[0].image);
+                          }}
+                        />
+                        
+                        {/* Overlay on Hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        {/* Live Preview Button on Hover */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                          <button 
+                            className="px-6 py-3 bg-white/90 backdrop-blur-sm text-gray-900 font-medium rounded-lg hover:bg-white transition-colors duration-200 shadow-lg"
+                            onClick={() => window.open(testimonials[0].link, "_blank")}
+                          >
+                            <span className="flex items-center gap-2">
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                              Live Preview
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                      
+                      {/* Video Play Indicator */}
+                      <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm rounded-full p-2 z-10">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                    </div>
 
-                {/* Card Number Badge */}
-                <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
-                  #{String(index + 1).padStart(2, '0')}
+                    {/* Title Section */}
+                    <div className="md:w-1/3 p-6 bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm flex flex-col justify-center">
+                      <div className="mb-4">
+                        <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                          {testimonials[0].author}
+                        </h3>
+                        <div className="flex text-yellow-400 text-sm">
+                          {[...Array(5)].map((_, i) => (
+                            <span key={i}>★</span>
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-gray-300 text-sm leading-relaxed italic">
+                        "{testimonials[0].text.substring(0, 150)}..."
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Four Image Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {testimonials.slice(1, 5).map((testimonial, index) => (
+                <div
+                  key={testimonial.id}
+                  className="group relative transform transition-all duration-500 hover:scale-105"
+                  style={{
+                    animationDelay: `${index * 100}ms`,
+                  }}
+                >
+                  {/* Card Glow Effect */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Enhanced Card Wrapper */}
+                  <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden shadow-2xl">
+                    
+                    {/* Image Container */}
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.author}
+                        className="w-full h-56 object-cover transition-all duration-500 group-hover:scale-110"
+                      />
+                      
+                      {/* Overlay on Hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Live Preview Button on Hover */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                        <button 
+                          className="px-6 py-3 bg-white/90 backdrop-blur-sm text-gray-900 font-medium rounded-lg hover:bg-white transition-colors duration-200 shadow-lg"
+                          onClick={() => window.open(testimonial.link, "_blank")}
+                        >
+                          <span className="flex items-center gap-2">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            Live Preview
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-4 bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm">
+                      <div className="mb-3">
+                        <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                          {testimonial.author}
+                        </h3>
+                        <div className="flex text-yellow-400 text-xs">
+                          {[...Array(5)].map((_, i) => (
+                            <span key={i}>★</span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {/* Short Quote Preview */}
+                      <p className="text-gray-300 text-sm leading-relaxed line-clamp-2 italic">
+                        "{testimonial.text.substring(0, 80)}..."
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Templates Section */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                Templates
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full mb-4"></div>
+            </div>
+            
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="group relative transform transition-all duration-500 hover:scale-105"
+                  style={{
+                    animationDelay: `${index * 100}ms`,
+                  }}
+                >
+                  {/* Card Glow Effect */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Enhanced Card Wrapper */}
+                  <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden shadow-2xl">
+                    <Cards card={card} />
+                  </div>
+
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Load More Section */}
