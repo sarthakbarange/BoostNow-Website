@@ -113,9 +113,9 @@ export default function Support({ id }) {
 
       {/* Popup Form (UNCHANGED) */}
       {showPopup && (
-      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-start justify-center z-50 p-4 pt-[150px] md:items-start md:pt-[100px] overflow-y-auto md:overflow-hidden">
-          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto relative my-4 md:my-0">
-            <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] md:max-h-[90vh]">
+      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-start justify-center z-[9999] p-4 pt-24 sm:pt-28 md:pt-32 overflow-y-auto">
+          <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto relative my-4">
+            <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
               <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/15 to-blue-400/20 p-2 sm:p-3 text-center border-b border-white/10 flex-shrink-0">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-1 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
                   <div className="w-8 h-8 sm:w-10 sm:h-10">
@@ -132,7 +132,7 @@ export default function Support({ id }) {
                 <p className="text-blue-200/80 text-xs hidden sm:block">Schedule a meeting with our experts to discuss your requirements.</p>
               </div>
 
-              <div className="p-5 sm:p-7 overflow-y-auto md:overflow-hidden flex-1">
+              <div className="p-3 sm:p-4 overflow-y-auto flex-1">
                 <form className="space-y-3 w-full" onSubmit={handleSubmit}>
                   <div className="space-y-2">
                     <h3 className="text-xs sm:text-sm font-semibold text-blue-200 flex items-center gap-2">
