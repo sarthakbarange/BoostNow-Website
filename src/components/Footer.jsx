@@ -44,8 +44,9 @@ export default function Footer() {
                 </div>
               </div>
               <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 max-w-sm mx-auto sm:mx-0">
-                Boost your business with innovative digital solutions. Stay ahead
-                with our expert services and cutting-edge technology.
+                Transform your business with Department as a Service 
+                your on-demand IT team that’s faster, smarter, and built to scale.
+                Trusted by leading SMEs, startups, and exporters.
               </p>
               
               {/* Social Media */}

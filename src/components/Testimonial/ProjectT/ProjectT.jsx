@@ -74,7 +74,7 @@
 // export default ProjectT;
 
 
-import React from "react";
+import React, { useState } from "react";
 import Cards from "../Cards/Cards.jsx";
 
 
@@ -188,6 +188,65 @@ const cards = [
 ];
 
 const ProjectT = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  
+  // Slider data with video card and review images
+  const sliderItems = [
+    {
+      type: "video",
+      data: testimonials[0]
+    },
+    {
+      type: "image",
+      image: "/Testinomial/review1.jpg",
+      mobileImage: "/Testinomial/mreview1.jpg",
+      alt: "Review 1"
+    },
+    {
+      type: "image",
+      image: "/Testinomial/review2.jpg",
+      mobileImage: "/Testinomial/mreview2.jpg",
+      alt: "Review 2"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % sliderItems.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + sliderItems.length) % sliderItems.length);
+  };
+
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+    
+    if (distance > minSwipeDistance) {
+      // Swipe left - next slide
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      // Swipe right - previous slide
+      prevSlide();
+    }
+    
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden">
 
@@ -226,78 +285,157 @@ const ProjectT = () => {
             </div>
 
             
-            {/* Video Card */}
-            <div className="flex justify-center mb-12">
-              <div className="max-w-4xl w-full group relative transform transition-all duration-500 hover:scale-105">
-                {/* Card Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Enhanced Card Wrapper */}
-                <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden shadow-2xl">
-                  
-                  {/* Horizontal Layout: Video + Title */}
-                  <div className="flex flex-col md:flex-row">
-                    {/* Video Container */}
-                    <div className="relative overflow-hidden md:w-2/3">
-                      <div className="relative w-full h-80 md:h-96 lg:h-[28rem] overflow-hidden">
-                        <video
-                          src={testimonials[0].image}
-                          className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          onError={(e) => {
-                            console.log('Video failed to load:', testimonials[0].image);
-                          }}
-                        />
-                        
-                        {/* Overlay on Hover */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        
-                        {/* Live Preview Button on Hover */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                          <button 
-                            className="px-6 py-3 bg-white/90 backdrop-blur-sm text-gray-900 font-medium rounded-lg hover:bg-white transition-colors duration-200 shadow-lg"
-                            onClick={() => window.open(testimonials[0].link, "_blank")}
-                          >
-                            <span className="flex items-center gap-2">
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
-                              Live Preview
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                      
-                      {/* Video Play Indicator */}
-                      <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm rounded-full p-2 z-10">
-                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                    </div>
+            {/* Slider with Video Card and Review Images */}
+            <div className="relative flex justify-center items-center mb-12 gap-4">
+              {/* Left Arrow - Outside (Hidden on Mobile) */}
+              <button
+                onClick={prevSlide}
+                className="hidden md:flex bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-10 flex-shrink-0"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
 
-                    {/* Title Section */}
-                    <div className="md:w-1/3 p-6 bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm flex flex-col justify-center">
-                      <div className="mb-4">
-                        <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
-                          {testimonials[0].author}
-                        </h3>
-                        <div className="flex text-yellow-400 text-sm">
-                          {[...Array(5)].map((_, i) => (
-                            <span key={i}>★</span>
-                          ))}
+              <div className="max-w-4xl w-full">
+                {/* Slider Container with Touch Support */}
+                <div 
+                  className="relative group"
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  {/* Slider Item */}
+                  {sliderItems[currentSlide].type === "video" ? (
+                    // Video Card
+                    <div className="w-full transform transition-all duration-500 hover:scale-105">
+                      {/* Card Glow Effect */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      
+                      {/* Enhanced Card Wrapper */}
+                      <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden shadow-2xl">
+                        
+                        {/* Horizontal Layout: Video + Title */}
+                        <div className="flex flex-col md:flex-row">
+                          {/* Video Container */}
+                          <div className="relative overflow-hidden md:w-2/3">
+                            <div className="relative w-full h-80 md:h-96 lg:h-[28rem] overflow-hidden">
+                              <video
+                                src={sliderItems[currentSlide].data.image}
+                                className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                onError={(e) => {
+                                  console.log('Video failed to load:', sliderItems[currentSlide].data.image);
+                                }}
+                              />
+                              
+                              {/* Overlay on Hover */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              
+                              {/* Live Preview Button on Hover */}
+                              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                                <button 
+                                  className="px-6 py-3 bg-white/90 backdrop-blur-sm text-gray-900 font-medium rounded-lg hover:bg-white transition-colors duration-200 shadow-lg"
+                                  onClick={() => window.open(sliderItems[currentSlide].data.link, "_blank")}
+                                >
+                                  <span className="flex items-center gap-2">
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                    Live Preview
+                                  </span>
+                                </button>
+                              </div>
+                            </div>
+                            
+                            {/* Video Play Indicator */}
+                            <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm rounded-full p-2 z-10">
+                              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                              </svg>
+                            </div>
+                          </div>
+
+                          {/* Title Section */}
+                          <div className="md:w-1/3 p-6 bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm flex flex-col justify-center">
+                            <div className="mb-4">
+                              <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                                {sliderItems[currentSlide].data.author}
+                              </h3>
+                              <div className="flex text-yellow-400 text-sm">
+                                {[...Array(5)].map((_, i) => (
+                                  <span key={i}>★</span>
+                                ))}
+                              </div>
+                            </div>
+                            <p className="text-gray-300 text-sm leading-relaxed italic">
+                              "{sliderItems[currentSlide].data.text.substring(0, 150)}..."
+                            </p>
+                          </div>
                         </div>
                       </div>
-                      <p className="text-gray-300 text-sm leading-relaxed italic">
-                        "{testimonials[0].text.substring(0, 150)}..."
-                      </p>
                     </div>
-                  </div>
+                  ) : (
+                    // Review Image Card
+                    <div className="w-full transform transition-all duration-500 hover:scale-105">
+                      {/* Card Glow Effect */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      
+                      {/* Enhanced Card Wrapper */}
+                      <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden shadow-2xl flex items-center justify-center">
+                        {/* Desktop Image */}
+                        <img
+                          src={sliderItems[currentSlide].image}
+                          alt={sliderItems[currentSlide].alt}
+                          className="hidden md:block w-full h-auto object-cover transition-all duration-500 group-hover:scale-105"
+                        />
+                        {/* Mobile Image */}
+                        <img
+                          src={sliderItems[currentSlide].mobileImage}
+                          alt={sliderItems[currentSlide].alt}
+                          className="block md:hidden w-full h-auto object-cover transition-all duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Slider Indicators */}
+                <div className="flex justify-center gap-2 mt-6">
+                  {sliderItems.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        currentSlide === index
+                          ? "bg-blue-500 w-8"
+                          : "bg-gray-500 hover:bg-gray-400"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
+
+              {/* Right Arrow - Outside (Hidden on Mobile) */}
+              <button
+                onClick={nextSlide}
+                className="hidden md:flex bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-10 flex-shrink-0"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Articles Section Heading */}
+            <div className="text-center mb-12 mt-20">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                Articles
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-4"></div>
             </div>
 
             {/* Four Image Cards */}
@@ -374,7 +512,7 @@ const ProjectT = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                 Templates
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full mb-4"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-4"></div>
             </div>
             
             {/* Cards Grid */}
